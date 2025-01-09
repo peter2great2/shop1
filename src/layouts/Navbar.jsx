@@ -1,8 +1,9 @@
 import React from "react";
 import "./Navbar.css";
+import { Link } from "react-router-dom";
 import {
    Navbar,
-   MobileNav,
+   Collapse,
    Typography,
    Button,
    IconButton,
@@ -95,14 +96,14 @@ export function StickyNavbar() {
                         size="sm"
                         className="hidden lg:inline-block"
                      >
-                        <span>Log In</span>
+                        <Link to={"/login"}>Log In</Link>
                      </Button>
                      <Button
                         variant="gradient"
                         size="sm"
                         className="hidden lg:inline-block"
                      >
-                        <span>Sign in</span>
+                        <Link to={"/register"}>Sign Up</Link>
                      </Button>
                   </div>
                   <IconButton
@@ -144,27 +145,27 @@ export function StickyNavbar() {
                   </IconButton>
                </div>
             </div>
-            <MobileNav open={openNav}>
+            <Collapse open={openNav}>
                {navList}
                <div className="flex items-center gap-x-1">
-                  <Button
-                     fullWidth
+                  <Link
+                     to={"/login"}
                      variant="text"
                      size="sm"
-                     className=""
+                     className="w-full bg-gray-600 text-white text-center p-2 rounded-xl"
                   >
-                     <span>Log In</span>
-                  </Button>
-                  <Button
-                     fullWidth
+                     Log In
+                  </Link>
+                  <Link
+                     to={"/register"}
                      variant="gradient"
                      size="sm"
-                     className=""
+                     className="w-full bg-black text-white text-center p-2 rounded-xl"
                   >
-                     <span>Sign in</span>
-                  </Button>
+                     Sign Up
+                  </Link>
                </div>
-            </MobileNav>
+            </Collapse>
          </Navbar>
       </div>
    );
