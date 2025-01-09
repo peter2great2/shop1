@@ -1,10 +1,9 @@
 import React from "react";
-import { NavbarSimple } from "../layouts/Navbar";
+import { StickyNavbar } from "../layouts/Navbar";
 const Homepage = () => {
    return (
       <div>
-         <NavbarSimple />
-         Homepage
+         <StickyNavbar />
       </div>
    );
 };
