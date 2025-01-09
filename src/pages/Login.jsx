@@ -1,10 +1,23 @@
 import { useState } from "react";
-
+import axios from "axios";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 export function Login() {
+   const navigate = useNavigate();
+   const handleSubmit = (e) => {
+      e.preventDefault();
+      axios
+         .post("http://localhost:3000/api/users/login", { email, password })
+         .then((result) => {
+            console.log(result);
+            navigate("/");
+         })
+         .catch((err) => console.log(err));
+   };
+   const [email, setEmail] = useState("");
+   const [password, setPassword] = useState("");
    const [passwordShown, setPasswordShown] = useState(false);
    const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
 
@@ -41,6 +54,7 @@ export function Login() {
                      type="email"
                      name="email"
                      placeholder="name@mail.com"
+                     onChange={(e) => setEmail(e.target.value)}
                      className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
                      labelProps={{
                         className: "hidden",
@@ -59,6 +73,7 @@ export function Login() {
                   <Input
                      size="lg"
                      placeholder="********"
+                     onChange={(e) => setPassword(e.target.value)}
                      labelProps={{
                         className: "hidden",
                      }}
@@ -79,6 +94,7 @@ export function Login() {
                   color="gray"
                   size="lg"
                   className="mt-6"
+                  onClick={handleSubmit}
                   fullWidth
                >
                   sign in
