@@ -3,6 +3,7 @@ import axios from "axios";
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { Link, useNavigate } from "react-router";
+import { toast } from "react-toastify";
 
 export function Login() {
    const navigate = useNavigate();
@@ -12,9 +13,13 @@ export function Login() {
          .post("http://localhost:3000/api/users/login", { email, password })
          .then((result) => {
             console.log(result);
+            toast.success(result.data.message);
             navigate("/");
          })
-         .catch((err) => console.log(err));
+         .catch((err) => {
+            console.log(err);
+            toast.error(err.response.data.message);
+         });
    };
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
