@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
+import { Link } from "react-router";
 
 export function Login() {
    const [passwordShown, setPasswordShown] = useState(false);
@@ -112,12 +113,12 @@ export function Login() {
                   className="!mt-4 text-center font-normal"
                >
                   Not registered?{" "}
-                  <a
-                     href="#"
+                  <Link
+                     to={"/register"}
                      className="font-medium text-gray-900"
                   >
                      Create account
-                  </a>
+                  </Link>
                </Typography>
             </form>
          </div>

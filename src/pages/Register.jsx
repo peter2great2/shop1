@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router";
 
 const Register = () => {
    return (
@@ -66,18 +67,18 @@ const Register = () => {
                   </div>
                   <button
                      type="submit"
-                     className="w-full px-4 py-2 font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring focus:ring-indigo-200"
+                     className="w-full px-4 py-2 font-medium text-white bg-[#212121] rounded-md hover:bg-gray-800 focus:outline-none focus:ring focus:ring-indigo-200"
                   >
                      Register
                   </button>
                </form>
                <div className="flex justify-between">
-                  <a
-                     to={"/"}
+                  <Link
+                     to={"/login"}
                      className="text-sm text-indigo-600 hover:underline"
                   >
                      Sign In
-                  </a>
+                  </Link>
                </div>
             </div>
          </div>
