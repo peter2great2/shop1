@@ -45,7 +45,7 @@ export function StickyNavbar() {
                href="#"
                className="flex items-center"
             >
-               Account
+               Profile
             </a>
          </Typography>
          <Typography
@@ -54,12 +54,12 @@ export function StickyNavbar() {
             color="blue-gray"
             className="p-1 font-normal"
          >
-            <a
-               href="#"
+            <Link
+               to={"/admin"}
                className="flex items-center"
             >
-               Blocks
-            </a>
+               Admin
+            </Link>
          </Typography>
          <Typography
             as="li"

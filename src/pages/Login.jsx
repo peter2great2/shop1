@@ -4,6 +4,7 @@ import { Typography, Input, Button } from "@material-tailwind/react";
 import { EyeSlashIcon, EyeIcon } from "@heroicons/react/24/solid";
 import { Link, useNavigate } from "react-router";
 import { toast } from "react-toastify";
+import "./Login.css";
 
 export function Login() {
    const navigate = useNavigate();
@@ -27,7 +28,7 @@ export function Login() {
    const togglePasswordVisiblity = () => setPasswordShown((cur) => !cur);
 
    return (
-      <section className="grid text-center h-screen items-center p-8">
+      <section className="background grid text-center h-screen items-center p-8">
          <div>
             <Typography
                variant="h3"
