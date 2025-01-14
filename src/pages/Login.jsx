@@ -8,19 +8,24 @@ import "./Login.css";
 
 export function Login() {
    const navigate = useNavigate();
-   const handleSubmit = (e) => {
+   const handleSubmit = async (e) => {
       e.preventDefault();
-      axios
-         .post("http://localhost:3000/api/users/login", { email, password })
-         .then((result) => {
-            console.log(result);
-            toast.success(result.data.message);
-            navigate("/");
-         })
-         .catch((err) => {
-            console.log(err);
-            toast.error(err.response.data.message);
-         });
+      const data = {
+         email: email,
+         password: password,
+      };
+      try {
+         const user = await axios.post(
+            "http://localhost:3000/api/users/login",
+            data,
+            { withCredentials: true }
+         );
+         toast.success("Login successful");
+         navigate("/admin");
+         console.log(user);
+      } catch (error) {
+         console.log(error.response.data.message);
+      }
    };
    const [email, setEmail] = useState("");
    const [password, setPassword] = useState("");
@@ -83,6 +88,7 @@ export function Login() {
                      labelProps={{
                         className: "hidden",
                      }}
+                     autoComplete="true"
                      className="w-full placeholder:opacity-100 focus:border-t-primary border-t-blue-gray-200"
                      type={passwordShown ? "text" : "password"}
                      icon={
@@ -119,7 +125,7 @@ export function Login() {
                <Button
                   variant="outlined"
                   size="lg"
-                  className="mt-6 flex h-12 items-center justify-center gap-2"
+                  className="mt-1 flex h-12 items-center justify-center gap-2"
                   fullWidth
                >
                   <img
@@ -132,7 +138,7 @@ export function Login() {
                <Typography
                   variant="small"
                   color="gray"
-                  className="!mt-4 text-center font-normal"
+                  className="!mt-2 text-center font-normal"
                >
                   Not registered?{" "}
                   <Link
