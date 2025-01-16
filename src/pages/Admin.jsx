@@ -9,23 +9,38 @@ const AdminDashboard = () => {
    const [allUsers, setAllUsers] = useState(null);
    const [allProducts, setAllProducts] = useState(null);
    const [allAdmins, setAllAdmins] = useState(null);
+   const [allOrders, setAllOrders] = useState(null);
+   const [allCategories, setAllCategories] = useState(null);
    const fetchData = async () => {
       try {
-         const [userResponse, productsResponse, adminResponse] =
-            await Promise.all([
-               axios.get("http://localhost:3000/api/users/all", {
-                  withCredentials: true,
-               }),
-               axios.get("http://localhost:3000/api/products/all", {
-                  withCredentials: true,
-               }),
-               axios.get("http://localhost:3000/api/users/admins", {
-                  withCredentials: true,
-               }),
-            ]);
+         const [
+            userResponse,
+            productsResponse,
+            adminResponse,
+            orderResponse,
+            categoryResponse,
+         ] = await Promise.all([
+            axios.get("http://localhost:3000/api/users/all", {
+               withCredentials: true,
+            }),
+            axios.get("http://localhost:3000/api/products/all", {
+               withCredentials: true,
+            }),
+            axios.get("http://localhost:3000/api/users/admins", {
+               withCredentials: true,
+            }),
+            axios.get("http://localhost:3000/api/orders/all", {
+               withCredentials: true,
+            }),
+            axios.get("http://localhost:3000/api/category/all", {
+               withCredentials: true,
+            }),
+         ]);
          setAllUsers(userResponse.data.allUsers);
          setAllProducts(productsResponse.data.allProducts);
          setAllAdmins(adminResponse.data.allAdmins);
+         setAllOrders(orderResponse.data.totalOrders);
+         setAllCategories(categoryResponse.data.categoryCount);
       } catch (error) {
          console.log(error);
       }
@@ -60,14 +75,14 @@ const AdminDashboard = () => {
             <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-yellow-400 to-yellow-600 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
                <FaShoppingCart size={40} />
                <h2 className="uppercase mt-2 text-lg">Total Orders</h2>
-               <h2 className="text-3xl font-bold">320</h2>
+               <h2 className="text-3xl font-bold">{allOrders}</h2>
             </div>
 
             {/* Total Categories */}
             <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-purple-400 to-purple-600 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
                <FaTags size={40} />
                <h2 className="uppercase mt-2 text-lg">Total Categories</h2>
-               <h2 className="text-3xl font-bold">25</h2>
+               <h2 className="text-3xl font-bold">{allCategories}</h2>
             </div>
          </div>
       </div>
