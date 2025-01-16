@@ -13,6 +13,7 @@ import {
 
 export function StickyNavbar() {
    const [admin, setAdmin] = useState(false);
+   const [loggedIn, setLoggedIn] = useState(false);
    useEffect(() => {
       try {
          axios
@@ -21,6 +22,7 @@ export function StickyNavbar() {
             })
             .then((response) => {
                setAdmin(response.data.data.isAdmin);
+               setLoggedIn(true);
             });
       } catch (error) {
          console.log(error);
@@ -88,7 +90,19 @@ export function StickyNavbar() {
          </Typography>
       </ul>
    );
-
+   const handleLogOut = () => {
+      axios
+         .post(
+            "http://localhost:3000/api/users/logout",
+            {},
+            {
+               withCredentials: true,
+            }
+         )
+         .then((response) => {
+            window.location.href = "/login";
+         });
+   };
    return (
       <div className="-m-6 max-h-[768px] w-[calc(100%+48px)]  pt-4 px-4">
          <Navbar className="sticky  h-max max-w-full rounded-none  px-4  lg:px-8 lg:py-4">
@@ -103,20 +117,27 @@ export function StickyNavbar() {
                <div className="flex items-center gap-4">
                   <div className="mr-4 hidden lg:block">{navList}</div>
                   <div className="flex items-center gap-x-1">
-                     <Button
-                        variant="text"
-                        size="sm"
-                        className="hidden lg:inline-block"
-                     >
-                        <Link to={"/login"}>Log In</Link>
-                     </Button>
-                     <Button
-                        variant="gradient"
-                        size="sm"
-                        className="hidden lg:inline-block"
-                     >
-                        <Link to={"/register"}>Sign Up</Link>
-                     </Button>
+                     {loggedIn ? (
+                        <Button
+                           variant="gradient"
+                           size="sm"
+                           className="hidden w-full bg-black text-white text-center p-2 rounded-xl lg:inline-block px-2"
+                           onClick={handleLogOut}
+                        >
+                           Logout
+                        </Button>
+                     ) : (
+                        <Button
+                           variant="gradient"
+                           size="sm"
+                           className="hidden w-full bg-black text-white text-center p-2 rounded-xl lg:inline-block"
+                           onClick={() => {
+                              window.location.href = "/login";
+                           }}
+                        >
+                           Login
+                        </Button>
+                     )}
                   </div>
                   <IconButton
                      variant="text"
@@ -160,22 +181,27 @@ export function StickyNavbar() {
             <Collapse open={openNav}>
                {navList}
                <div className="flex items-center gap-x-1">
-                  <Link
-                     to={"/login"}
-                     variant="text"
-                     size="sm"
-                     className="w-full bg-gray-600 text-white text-center p-2 rounded-xl"
-                  >
-                     Log In
-                  </Link>
-                  <Link
-                     to={"/register"}
-                     variant="gradient"
-                     size="sm"
-                     className="w-full bg-black text-white text-center p-2 rounded-xl"
-                  >
-                     Sign Up
-                  </Link>
+                  {loggedIn ? (
+                     <Button
+                        variant="gradient"
+                        size="sm"
+                        className="w-full bg-black text-white text-center p-2 rounded-xl lg:inline-block"
+                        onClick={handleLogOut}
+                     >
+                        Logout
+                     </Button>
+                  ) : (
+                     <Button
+                        variant="gradient"
+                        size="sm"
+                        className="w-full bg-black text-white text-center p-2 rounded-xl lg:inline-block"
+                        onClick={() => {
+                           window.location.href = "/login";
+                        }}
+                     >
+                        Login
+                     </Button>
+                  )}
                </div>
             </Collapse>
          </Navbar>
