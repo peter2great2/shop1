@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/Admin";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import UserManagement from "./admin/Users";
+import Products from "./admin/Products";
 function App() {
    return (
       <>
@@ -38,6 +39,10 @@ function App() {
                   <Route
                      path="/admin/users"
                      element={<UserManagement />}
+                  />
+                  <Route
+                     path="/admin/products"
+                     element={<Products />}
                   />
                </Route>
             </Routes>
