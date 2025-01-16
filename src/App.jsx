@@ -7,7 +7,7 @@ import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 import AdminDashboard from "./pages/Admin";
 import ProtectedRoute from "./utils/ProtectedRoute";
-
+import UserManagement from "./admin/Users";
 function App() {
    return (
       <>
@@ -34,6 +34,10 @@ function App() {
                   <Route
                      path="/profile"
                      element={<Profile />}
+                  />
+                  <Route
+                     path="/admin/users"
+                     element={<UserManagement />}
                   />
                </Route>
             </Routes>
