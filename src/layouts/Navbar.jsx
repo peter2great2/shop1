@@ -20,7 +20,6 @@ export function StickyNavbar() {
                withCredentials: true,
             })
             .then((response) => {
-               console.log(response.data.data.isAdmin);
                setAdmin(response.data.data.isAdmin);
             });
       } catch (error) {

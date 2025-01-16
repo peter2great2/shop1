@@ -22,7 +22,6 @@ export function Login() {
          );
          toast.success("Login successful");
          navigate("/");
-         console.log(user);
       } catch (error) {
          toast.error(error.response.data.message);
          console.log(error.response.data.message);
