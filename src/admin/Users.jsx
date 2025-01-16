@@ -40,8 +40,8 @@ const UserManagement = () => {
       <div>
          <StickyNavbar />
          <br />
-         <div className="p-4 sm:p-6 lg:p-8">
-            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 lg:mb-6">
+         <div className="p-4 sm:p-6 lg:p-8 bg-gray-100">
+            <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-gray-800">
                User Management
             </h1>
 
@@ -50,8 +50,8 @@ const UserManagement = () => {
             </button>
 
             <div className="overflow-x-auto overflow-y-auto max-h-[400px]">
-               <table className="min-w-full bg-white border border-gray-200">
-                  <thead>
+               <table className="min-w-full bg-white border border-gray-200 rounded-lg shadow-lg">
+                  <thead className="bg-gray-700 text-white">
                      <tr>
                         <th className="px-4 sm:px-6 py-2 sm:py-3 border-b text-left text-sm sm:text-base">
                            Name
@@ -68,8 +68,13 @@ const UserManagement = () => {
                      </tr>
                   </thead>
                   <tbody>
-                     {users.map((user) => (
-                        <tr key={user._id}>
+                     {users.map((user, index) => (
+                        <tr
+                           key={user._id}
+                           className={`${
+                              index % 2 === 0 ? "bg-gray-50" : "bg-gray-100"
+                           } hover:bg-gray-200 transition-colors duration-300`}
+                        >
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
                               {user.name}
                            </td>
@@ -77,13 +82,18 @@ const UserManagement = () => {
                               {user.email}
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
-                              {user.isAdmin ? "Admin" : "User"}
+                              {user.isAdmin ? (
+                                 <span className="text-green-300">Admin</span>
+                              ) : (
+                                 <span className="text-black">User</span>
+                              )}
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b">
-                              <button className="text-red-600 hover:text-red-800">
-                                 <FaTrash
-                                    onClick={() => handleDelete(user._id)}
-                                 />
+                              <button
+                                 className="text-red-600 hover:text-red-800"
+                                 onClick={() => handleDelete(user._id)}
+                              >
+                                 <FaTrash />
                               </button>
                            </td>
                         </tr>
