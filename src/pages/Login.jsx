@@ -16,7 +16,7 @@ export function Login() {
       };
       try {
          const user = await axios.post(
-            "http://localhost:3000/api/users/login",
+            "http://localhost:3000/api/users/",
             data,
             { withCredentials: true }
          );
