@@ -6,20 +6,25 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const AdminDashboard = () => {
-   const [allUsers, setAllUsers] = useState("0");
-   try {
-      axios
-         .get("http://localhost:3000/api/users/all", {
-            withCredentials: true,
-         })
-         .then((res) => {
-            console.log(res.data);
-            setAllUsers(res.data.allUsers);
-         });
-   } catch (error) {
-      console.log(error);
-   }
-
+   const [allUsers, setAllUsers] = useState(null);
+   const [allProducts, setAllProducts] = useState(null);
+   const fetchData = async () => {
+      try {
+         const [userResponse, productsResponse] = await Promise.all([
+            axios.get("http://localhost:3000/api/users/all", {
+               withCredentials: true,
+            }),
+            axios.get("http://localhost:3000/api/products/all", {
+               withCredentials: true,
+            }),
+         ]);
+         setAllUsers(userResponse.data.allUsers);
+         setAllProducts(productsResponse.data.allProducts);
+      } catch (error) {
+         console.log(error);
+      }
+   };
+   fetchData();
    return (
       <div>
          <StickyNavbar />
@@ -41,8 +46,8 @@ const AdminDashboard = () => {
             {/* Total Products */}
             <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-green-400 to-green-600 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
                <FaBoxes size={40} />
-               <h2 className="uppercase mt-2 text-lg">Total Products</h2>
-               <h2 className="text-3xl font-bold">1500</h2>
+               <h2 className="uppercase mt-2 text-lg">Total products</h2>
+               <h2 className="text-3xl font-bold">{allProducts}</h2>
             </div>
 
             {/* Total Orders */}
