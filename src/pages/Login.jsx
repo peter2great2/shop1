@@ -16,7 +16,7 @@ export function Login() {
       };
       try {
          const user = await axios.post(
-            "http://localhost:3000/api/users/",
+            "http://localhost:3000/api/users/login",
             data,
             { withCredentials: true }
          );
@@ -24,6 +24,7 @@ export function Login() {
          navigate("/admin");
          console.log(user);
       } catch (error) {
+         toast.error(error.response.data.message);
          console.log(error.response.data.message);
       }
    };

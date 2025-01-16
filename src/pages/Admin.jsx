@@ -5,15 +5,18 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const AdminDashboard = () => {
-   useEffect(() => {
+   try {
       axios
          .get("http://localhost:3000/api/users/all", {
             withCredentials: true,
          })
-         .then((response) => {
-            console.log(response.data);
+         .then((res) => {
+            console.log(res.data);
          });
-   }, []);
+   } catch (error) {
+      console.log(error);
+   }
+
    return (
       <div>
          <StickyNavbar />
