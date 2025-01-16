@@ -31,6 +31,10 @@ function App() {
                      path="/admin"
                      element={<AdminDashboard />}
                   />
+                  <Route
+                     path="/profile"
+                     element={<Profile />}
+                  />
                </Route>
             </Routes>
          </BrowserRouter>

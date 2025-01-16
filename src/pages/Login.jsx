@@ -21,7 +21,7 @@ export function Login() {
             { withCredentials: true }
          );
          toast.success("Login successful");
-         navigate("/admin");
+         navigate("/");
          console.log(user);
       } catch (error) {
          toast.error(error.response.data.message);

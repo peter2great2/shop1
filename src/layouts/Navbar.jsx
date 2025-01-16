@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import {
    Navbar,
    Collapse,
@@ -11,6 +12,21 @@ import {
 } from "@material-tailwind/react";
 
 export function StickyNavbar() {
+   const [admin, setAdmin] = useState(false);
+   useEffect(() => {
+      try {
+         axios
+            .get("http://localhost:3000/api/users/profile", {
+               withCredentials: true,
+            })
+            .then((response) => {
+               console.log(response.data.data.isAdmin);
+               setAdmin(response.data.data.isAdmin);
+            });
+      } catch (error) {
+         console.log(error);
+      }
+   }, []);
    const [openNav, setOpenNav] = React.useState(false);
 
    React.useEffect(() => {
@@ -41,26 +57,23 @@ export function StickyNavbar() {
             color="blue-gray"
             className="p-1 font-normal"
          >
-            <a
-               href="#"
+            <Link
+               to={"/profile"}
                className="flex items-center"
             >
                Profile
-            </a>
-         </Typography>
-         <Typography
-            as="li"
-            variant="small"
-            color="blue-gray"
-            className="p-1 font-normal"
-         >
-            <Link
-               to={"/admin"}
-               className="flex items-center"
-            >
-               Admin
             </Link>
          </Typography>
+         {admin && (
+            <Typography
+               as="li"
+               variant="small"
+               color="blue-gray"
+               className="p-1 font-normal"
+            >
+               <Link to={"/admin"}>Admin</Link>
+            </Typography>
+         )}
          <Typography
             as="li"
             variant="small"
