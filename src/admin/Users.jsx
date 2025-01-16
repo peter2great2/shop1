@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { FaTrash } from "react-icons/fa";
+import { FaTrash, FaEdit } from "react-icons/fa";
 import { StickyNavbar } from "../layouts/Navbar";
 import { toast } from "react-toastify";
 
@@ -89,11 +89,14 @@ const UserManagement = () => {
                               )}
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b">
-                              <button
-                                 className="text-red-600 hover:text-red-800"
-                                 onClick={() => handleDelete(user._id)}
-                              >
-                                 <FaTrash />
+                              <button className=" ">
+                                 <div className="flex justify-between items-center gap-4">
+                                    <FaEdit className="text-blue-gray-700 hover:text-gray-900" />
+                                    <FaTrash
+                                       className="text-red-500 hover:text-red-800"
+                                       onClick={() => handleDelete(user._id)}
+                                    />
+                                 </div>
                               </button>
                            </td>
                         </tr>
