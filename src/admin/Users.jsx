@@ -132,7 +132,7 @@ const UserManagement = () => {
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
                               {user.isAdmin ? (
-                                 <span className="text-green-300">Admin</span>
+                                 <span className="text-green-500">Admin</span>
                               ) : (
                                  <span className="text-black">User</span>
                               )}
