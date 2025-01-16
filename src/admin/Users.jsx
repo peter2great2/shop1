@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrash } from "react-icons/fa";
 import { StickyNavbar } from "../layouts/Navbar";
+import { toast } from "react-toastify";
 
 const UserManagement = () => {
    const [users, setUsers] = useState([]);
@@ -12,15 +13,28 @@ const UserManagement = () => {
                "http://localhost:3000/api/users/all",
                { withCredentials: true }
             );
-            console.log(response.data.users);
             setUsers(response.data.users);
+            toast.success(response.data.message);
          } catch (error) {
-            console.error("Error fetching users:", error);
+            toast.error(error.response.data.message);
          }
       };
 
       fetchUsers();
    }, []);
+
+   const handleDelete = async (userId) => {
+      try {
+         const response = await axios.delete(
+            `http://localhost:3000/api/users/delete/${userId}`,
+            { withCredentials: true }
+         );
+         response.data;
+         setUsers(users.filter((user) => user._id.toString() !== userId));
+      } catch (error) {
+         console.error(error.response.data.message);
+      }
+   };
 
    return (
       <div>
@@ -55,7 +69,7 @@ const UserManagement = () => {
                   </thead>
                   <tbody>
                      {users.map((user) => (
-                        <tr key={user.id}>
+                        <tr key={user._id}>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
                               {user.name}
                            </td>
@@ -67,7 +81,9 @@ const UserManagement = () => {
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b">
                               <button className="text-red-600 hover:text-red-800">
-                                 <FaTrash />
+                                 <FaTrash
+                                    onClick={() => handleDelete(user._id)}
+                                 />
                               </button>
                            </td>
                         </tr>
