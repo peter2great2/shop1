@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
 import { FaUsers, FaBoxes, FaShoppingCart, FaTags } from "react-icons/fa";
 import { StickyNavbar } from "../layouts/Navbar";
@@ -5,6 +6,7 @@ import axios from "axios";
 import { useEffect } from "react";
 
 const AdminDashboard = () => {
+   const [allUsers, setAllUsers] = useState("0");
    try {
       axios
          .get("http://localhost:3000/api/users/all", {
@@ -12,6 +14,7 @@ const AdminDashboard = () => {
          })
          .then((res) => {
             console.log(res.data);
+            setAllUsers(res.data.allUsers);
          });
    } catch (error) {
       console.log(error);
@@ -25,7 +28,7 @@ const AdminDashboard = () => {
             <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-red-400 to-red-600 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
                <BiSolidUser size={40} />
                <h2 className="uppercase mt-2 text-lg">Total Users</h2>
-               <h2 className="text-3xl font-bold">600</h2>
+               <h2 className="text-3xl font-bold">{allUsers}</h2>
             </div>
 
             {/* Total Admin */}
