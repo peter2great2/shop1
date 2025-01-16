@@ -8,18 +8,24 @@ import { useEffect } from "react";
 const AdminDashboard = () => {
    const [allUsers, setAllUsers] = useState(null);
    const [allProducts, setAllProducts] = useState(null);
+   const [allAdmins, setAllAdmins] = useState(null);
    const fetchData = async () => {
       try {
-         const [userResponse, productsResponse] = await Promise.all([
-            axios.get("http://localhost:3000/api/users/all", {
-               withCredentials: true,
-            }),
-            axios.get("http://localhost:3000/api/products/all", {
-               withCredentials: true,
-            }),
-         ]);
+         const [userResponse, productsResponse, adminResponse] =
+            await Promise.all([
+               axios.get("http://localhost:3000/api/users/all", {
+                  withCredentials: true,
+               }),
+               axios.get("http://localhost:3000/api/products/all", {
+                  withCredentials: true,
+               }),
+               axios.get("http://localhost:3000/api/users/admins", {
+                  withCredentials: true,
+               }),
+            ]);
          setAllUsers(userResponse.data.allUsers);
          setAllProducts(productsResponse.data.allProducts);
+         setAllAdmins(adminResponse.data.allAdmins);
       } catch (error) {
          console.log(error);
       }
@@ -40,7 +46,7 @@ const AdminDashboard = () => {
             <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-blue-400 to-blue-600 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
                <FaUsers size={40} />
                <h2 className="uppercase mt-2 text-lg">Total Admin</h2>
-               <h2 className="text-3xl font-bold">10</h2>
+               <h2 className="text-3xl font-bold">{allAdmins}</h2>
             </div>
 
             {/* Total Products */}
