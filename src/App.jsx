@@ -9,6 +9,7 @@ import AdminDashboard from "./pages/Admin";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import UserManagement from "./admin/Users";
 import Products from "./admin/Products";
+import CategoryPage from "./admin/Category";
 function App() {
    return (
       <>
@@ -43,6 +44,10 @@ function App() {
                   <Route
                      path="/admin/products"
                      element={<Products />}
+                  />
+                  <Route
+                     path="/admin/categories"
+                     element={<CategoryPage />}
                   />
                </Route>
             </Routes>

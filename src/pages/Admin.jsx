@@ -82,11 +82,14 @@ const AdminDashboard = () => {
                <h2 className="text-3xl font-bold">{allOrders}</h2>
             </div>
 
-            <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-purple-400 to-purple-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
+            <Link
+               to={"/admin/categories"}
+               className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-purple-400 to-purple-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform"
+            >
                <FaTags size={40} />
                <h2 className="uppercase mt-2 text-lg">Total Categories</h2>
                <h2 className="text-3xl font-bold">{allCategories}</h2>
-            </div>
+            </Link>
          </div>
       </div>
    );
