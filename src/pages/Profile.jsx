@@ -1,6 +1,44 @@
+import { useEffect } from 'react';
 import { StickyNavbar } from '../layouts/Navbar';
+import { useState } from 'react';
+import axios from 'axios';
+
 
 const ProfilePage = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [image, setImage] = useState("");
+  const [country, setCountry] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [street, setStreet] = useState("");
+ 
+  useEffect(() => {
+    const getData = async () => {
+      try {
+       const response = await axios.get(
+         "http://localhost:3000/api/users/profile",
+         {
+           withCredentials: true,
+         }
+       );
+
+       setName(response.data.data.name);
+       setEmail(response.data.data.email);
+       setPhone(response.data.data.phone);
+       setImage(response.data.data.image);
+       setCountry(response.data.data.address[0].country);
+       setState(response.data.data.address[0].state);
+       setCity(response.data.data.address[0].city);
+       setStreet(response.data.data.address[0].street);
+       
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    getData();
+  }, [] )
   return (
   <div>
   <StickyNavbar />
@@ -10,13 +48,13 @@ const ProfilePage = () => {
         {/* Header Section */}
         <div className="flex items-center gap-6 border-b pb-6 mb-6">
           <img
-            src="https://via.placeholder.com/100"
+            src={image}
             alt="Profile"
             className="w-24 h-24 rounded-full object-cover border-4 border-indigo-500"
           />
           <div>
-            <h1 className="text-2xl font-bold text-gray-800">John Doe</h1>
-            <p className="text-gray-600">johndoe@example.com</p>
+            <h1 className="text-2xl font-bold text-gray-800">{name}</h1>
+            <p className="text-gray-600">{email}</p>
             <p className="text-sm text-gray-500 mt-2">Joined: January 2023</p>
           </div>
         </div>
@@ -26,8 +64,8 @@ const ProfilePage = () => {
           {/* Personal Information */}
           <div className="bg-gray-50 p-6 rounded-lg shadow">
             <h2 className="text-lg font-semibold text-gray-700 mb-4">Personal Info</h2>
-            <p className="text-gray-600"><strong>Phone:</strong> (123) 456-7890</p>
-            <p className="text-gray-600 mt-2"><strong>Address:</strong> 123 Main Street, Cityville, USA</p>
+            <p className="text-gray-600"><strong>Phone:</strong>{phone}</p>
+            <p className="text-gray-600 mt-2"><strong>Address:</strong>` {street}, {city}, {state}, {country}`</p>
             <button className="mt-4 px-4 py-2 bg-indigo-500 text-white rounded shadow hover:bg-indigo-600">
               Edit Info
             </button>
