@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
+import { BiCart } from "react-icons/bi";
 import axios from "axios";
 import {
    Navbar,
@@ -45,19 +46,6 @@ export function StickyNavbar() {
             color="blue-gray"
             className="p-1 font-normal"
          >
-            <a
-               href="#"
-               className="flex items-center"
-            >
-               Pages
-            </a>
-         </Typography>
-         <Typography
-            as="li"
-            variant="small"
-            color="blue-gray"
-            className="p-1 font-normal"
-         >
             <Link
                to={"/profile"}
                className="flex items-center"
@@ -79,14 +67,9 @@ export function StickyNavbar() {
             as="li"
             variant="small"
             color="blue-gray"
-            className="p-1 font-normal"
+            className="p-1 font-normal hover:cursor-pointer"
          >
-            <a
-               href="#"
-               className="flex items-center"
-            >
-               Docs
-            </a>
+           <BiCart size={20}fill="blue"  />
          </Typography>
       </ul>
    );

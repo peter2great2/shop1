@@ -81,7 +81,8 @@ const ExtendedRegister = () => {
                </div>
                <div>
                   <input
-                     type="text"
+                     type="test"
+                     value={street}
                      id="street"
                      required
                      className="w-full px-3 py-2 border rounded-md focus:outline-none focus:ring focus:ring-indigo-200"
