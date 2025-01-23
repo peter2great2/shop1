@@ -5,11 +5,12 @@ import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
-import AdminDashboard from "./pages/Admin";
+import AdminDashboard from "./admin/Admin";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import UserManagement from "./admin/Users";
 import Products from "./admin/Products";
 import CategoryPage from "./admin/Category";
+import OrderPage from "./admin/Orders";
 function App() {
    return (
       <>
@@ -48,6 +49,10 @@ function App() {
                   <Route
                      path="/admin/categories"
                      element={<CategoryPage />}
+                  />
+                  <Route
+                     path="/admin/orders"
+                     element={<OrderPage />}
                   />
                </Route>
             </Routes>

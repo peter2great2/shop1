@@ -109,7 +109,13 @@ const UserManagement = () => {
                            Email
                         </th>
                         <th className="px-4 sm:px-6 py-2 sm:py-3 border-b text-left text-sm sm:text-base">
+                           Picture
+                        </th>
+                        <th className="px-4 sm:px-6 py-2 sm:py-3 border-b text-left text-sm sm:text-base">
                            Role
+                        </th>
+                        <th className="px-4 sm:px-6 py-2 sm:py-3 border-b text-left text-sm sm:text-base">
+                           Country
                         </th>
                         <th className="px-4 sm:px-6 py-2 sm:py-3 border-b text-left text-sm sm:text-base">
                            Actions
@@ -131,11 +137,17 @@ const UserManagement = () => {
                               {user.email}
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
+                             <img src={user.image} alt="profile pics" className="w-5 h-5 rounded-full" />
+                           </td>
+                           <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
                               {user.isAdmin ? (
                                  <span className="text-green-500">Admin</span>
                               ) : (
                                  <span className="text-black">User</span>
                               )}
+                           </td>
+                           <td className="px-4 sm:px-6 py-2 sm:py-4 border-b text-sm sm:text-base">
+                              {user.address[0].country}
                            </td>
                            <td className="px-4 sm:px-6 py-2 sm:py-4 border-b">
                               <button>

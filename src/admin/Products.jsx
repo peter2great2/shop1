@@ -112,28 +112,3 @@ const AdminProductsPage = () => {
 };
 
 export default AdminProductsPage;
-
-// <tr className="hover:bg-gray-100">
-//    <td className="p-4 border-b">1</td>
-//    <td className="p-4 border-b">
-//       <img
-//          src={sampleImage}
-//          alt="Sample Product"
-//          className="w-12 h-12 object-cover rounded-full"
-//       />
-//    </td>
-//    <td className="p-4 border-b">Television</td>
-//    <td className="p-4 border-b">Electronics</td>
-//    <td className="p-4 border-b">$10.00</td>
-//    <td className="p-4 border-b">50</td>
-//    <td className="p-4 border-b">
-//       <div className="flex space-x-2">
-//          <button >
-//             Edit
-//          </button>
-//          <button className="px-3 py-1 text-white bg-red-500 rounded-lg hover:bg-red-600">
-//             Delete
-//          </button>
-//       </div>
-//    </td>
-// </tr>
