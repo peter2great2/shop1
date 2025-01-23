@@ -1,12 +1,20 @@
 import React from "react";
 import { StickyNavbar } from "../layouts/Navbar";
+import Header from "../layouts/Header";
+import { Footer } from "../layouts/Footer";
+
 const Homepage = () => {
-   return (
+  return (
+    <div className="">
+      <StickyNavbar />
+      <br />
       <div>
-         <StickyNavbar />
-         <br />
+        <Header />
       </div>
-   );
+      {/* <Header /> */}
+      <Footer />
+    </div>
+  );
 };
 
 export default Homepage;

@@ -87,15 +87,13 @@ export function StickyNavbar() {
          });
    };
    return (
-      <div className="-m-6 max-h-[768px] w-[calc(100%+48px)]  pt-4 px-4">
-         <Navbar className="sticky  h-max max-w-full rounded-none  px-4  lg:px-8 lg:py-4">
-            <div className="flex items-center justify-between text-blue-gray-900">
+      <div className="-m-6  max-h-[768px] w-[calc(100%+48px)]   pt-4 px-4 ">
+         <Navbar className="sticky    h-max max-w-full rounded-none  px-4  lg:px-8 lg:py-4 ">
+            <div className="flex items-center justify-between text-blue-gray-900 ">
                <Typography
-                  as="a"
-                  href="#"
                   className="mr-4 cursor-pointer py-1.5 font-medium"
                >
-                  Shopify
+                  <Link to={'/login'} className="text-3xl">Shop<span>ify</span></Link>
                </Typography>
                <div className="flex items-center gap-4">
                   <div className="mr-4 hidden lg:block">{navList}</div>
