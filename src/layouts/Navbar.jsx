@@ -87,36 +87,36 @@ export function StickyNavbar() {
    };
    return (
       <div className="-m-6 max-h-[568px] w-[calc(100%+48px)] pt-2 px-4 mb-4">
-         <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2">
+         <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2 bg-[#fff]">
             <div className="flex items-center justify-between text-blue-gray-900">
                <Typography
                   className="mr-4 cursor-pointer py-1.5 font-medium"
                >
-                  <Link to={'/'} className="text-2xl">Shop<span>ify</span></Link>
+                  <Link to={'/'} className="text-2xl">Shopify<span className="text-[#c2807a]">3</span></Link>
                </Typography>
                <div className="flex items-center gap-4">
                   <div className="mr-4 hidden lg:block">{navList}</div>
-                  <div className="flex items-center gap-x-1">
+                  <div className="flex items-center gap-x-1 bg-[#c2807a]">
                      {loggedIn ? (
-                        <Button
+                        <Link
                            variant="gradient"
                            size="sm"
-                           className="hidden w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded-xl lg:inline-block px-2"
+                           className="hidden w-[10vw] text-white text-center py-1 rounded-xl lg:inline-block px-2"
                            onClick={handleLogOut}
                         >
                            Logout
-                        </Button>
+                        </Link>
                      ) : (
-                        <Button
+                        <Link
                            variant="gradient"
                            size="sm"
-                           className="hidden w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded-xl lg:inline-block"
+                           className="hidden md:w-[15vw] text-white text-center p-2 rounded lg:inline-block bg-[#c2807a]"
                            onClick={() => {
                               window.location.href = "/login";
                            }}
                         >
                            Login
-                        </Button>
+                        </Link>
                      )}
                   </div>
                   <IconButton
@@ -162,25 +162,25 @@ export function StickyNavbar() {
                {navList}
                <div className="flex items-center gap-x-1">
                   {loggedIn ? (
-                     <Button
+                     <Link
                         variant="gradient"
                         size="sm"
-                        className="w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded-xl lg:inline-block"
+                        className="w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded lg:inline-block"
                         onClick={handleLogOut}
                      >
                         Logout
-                     </Button>
+                     </Link>
                   ) : (
-                     <Button
+                     <Link
                         variant="gradient"
                         size="sm"
-                        className="w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded-xl lg:inline-block"
+                        className="w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded lg:inline-block"
                         onClick={() => {
                            window.location.href = "/login";
                         }}
                      >
                         Login
-                     </Button>
+                     </Link>
                   )}
                </div>
             </Collapse>

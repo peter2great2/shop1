@@ -10,4 +10,6 @@
 
 body{
     background-color: rgb(236, 235, 240);
+    margin: 0;
+    padding: 0;
 }

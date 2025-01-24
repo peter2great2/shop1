@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StickyNavbar } from "../layouts/Navbar";
-import sampleImage from "../assets/images/ei_1663268459705-removebg-preview.jpg";
+import sampleImage from "../assets/images/peter.jpg";
 import axios from "axios";
 
 const AdminProductsPage = () => {

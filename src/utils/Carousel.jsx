@@ -21,7 +21,7 @@ export function CarouselTransition() {
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, accusantium culpa ducimus ipsam optio, sit dolor architecto vitae, reprehenderit aperiam ut inventore eaque consectetur libero nulla beatae sequi labore aliquam.
             Lorem ipsum dolor sit Lorem ipsum dolor, sit amet consectetur adipisicing elit. klase kiers faeer ffires fdees
         </p>
-        <Link to={'/login'} rel="noopener noreferrer" href="#" className="px-8 w-[80%] md:w-[100%] py-3 text-lg font-semibold bg-[#c2807a] hover:bg-brown-700 text-center dark:text-gray-50 flex justify-center gap-2 items-center">Go to Store <FaStore/></Link>
+        <Link to={'/login'} rel="noopener noreferrer" href="#" className="px-8  w-[90%] py-3 text-lg font-semibold bg-[#c2807a] hover:bg-brown-700 text-center dark:text-gray-50 flex justify-center gap-2 items-center">Go to Store <FaStore/></Link>
       </div>
       <Carousel transition={{ duration: 1 }} autoplayDelay={2000} loop autoplay navigation={""} prevArrow={""} nextArrow={""}  className=" w-full md:w-1/2">
         <div>
