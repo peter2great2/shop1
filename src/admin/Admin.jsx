@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { BiSolidUser } from "react-icons/bi";
-import { FaUsers, FaBoxes, FaShoppingCart, FaTags } from "react-icons/fa";
+import { FaUsers, FaBoxes, FaShoppingCart, FaTags, FaChartLine, FaDollarSign } from "react-icons/fa";
 import { StickyNavbar } from "../layouts/Navbar";
 import axios from "axios";
 import { Link } from "react-router";
+import {Footer} from "../layouts/Footer";
 import { useEffect } from "react";
 
 const AdminDashboard = () => {
@@ -12,6 +13,9 @@ const AdminDashboard = () => {
    const [allAdmins, setAllAdmins] = useState(null);
    const [allOrders, setAllOrders] = useState(null);
    const [allCategories, setAllCategories] = useState(null);
+   // const [totalRevenue, setTotalRevenue] = useState(null);
+   // const [totalVisits, setTotalVisits] = useState(null);
+
    const fetchData = async () => {
       try {
          const [
@@ -20,6 +24,8 @@ const AdminDashboard = () => {
             adminResponse,
             orderResponse,
             categoryResponse,
+            // revenueResponse,
+            // visitsResponse,
          ] = await Promise.all([
             axios.get("http://localhost:3000/api/users/all", {
                withCredentials: true,
@@ -36,12 +42,20 @@ const AdminDashboard = () => {
             axios.get("http://localhost:3000/api/category/all", {
                withCredentials: true,
             }),
+            // axios.get("http://localhost:3000/api/revenue/total", {
+            //    withCredentials: true,
+            // }),
+            // axios.get("http://localhost:3000/api/visits/total", {
+            //    withCredentials: true,
+            // }),
          ]);
          setAllUsers(userResponse.data.allUsers);
          setAllProducts(productsResponse.data.allProducts);
          setAllAdmins(adminResponse.data.allAdmins);
          setAllOrders(orderResponse.data.totalOrders);
          setAllCategories(categoryResponse.data.categoryCount);
+         // setTotalRevenue(revenueResponse.data.totalRevenue);
+         // setTotalVisits(visitsResponse.data.totalVisits);
       } catch (error) {
          console.log(error);
       }
@@ -93,7 +107,24 @@ const AdminDashboard = () => {
                <h2 className="uppercase mt-2 text-lg">Total Categories</h2>
                <h2 className="text-3xl font-bold">{allCategories}</h2>
             </Link>
+            <Link
+               to={"/admin/revenue"}
+               className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-teal-400 to-teal-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform"
+            >
+               <FaDollarSign size={40} />
+               <h2 className="uppercase mt-2 text-lg">Total Revenue</h2>
+               <h2 className="text-3xl font-bold">700</h2>
+            </Link>
+            <Link
+               to={"/admin/visits"}
+               className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-indigo-400 to-indigo-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform"
+            >
+               <FaChartLine size={40} />
+               <h2 className="uppercase mt-2 text-lg">Total Visits</h2>
+               <h2 className="text-3xl font-bold">499442</h2>
+            </Link>
          </div>
+         <Footer/>
       </div>
    );
 };

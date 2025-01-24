@@ -1,0 +1,31 @@
+
+
+.text-shadow-drop-top {
+	-webkit-animation: text-shadow-drop-top 0.6s infinite both;
+	        animation: text-shadow-drop-top 0.6s infinite both;
+}
+
+
+
+
+
+
+
+/* ---------------------------------------- */
+ @-webkit-keyframes text-shadow-drop-top {
+    0% {
+      text-shadow: 0 0 0 rgba(224, 5, 5, 0);
+    }
+    100% {
+      text-shadow: 0 -6px 18px rgba(196, 60, 60, 0.35);
+    }
+  }
+  @keyframes text-shadow-drop-top {
+    0% {
+      text-shadow: 0 0 0 rgba(192, 40, 40, 0);
+    }
+    100% {
+      text-shadow: 0 -6px 18px rgba(198, 63, 63, 0.35);
+    }
+  }
+  
