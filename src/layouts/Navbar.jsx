@@ -68,7 +68,7 @@ export function StickyNavbar() {
             color="blue-gray"
             className="p-1 font-normal hover:cursor-pointer flex items-center"
          ><h4>Cart</h4>
-           <BiCart size={20}fill="blue"  />
+           <BiCart size={20}fill="#c2807a"  />
          </Typography>
       </ul>
    );
@@ -86,7 +86,7 @@ export function StickyNavbar() {
          });
    };
    return (
-      <div className="-m-6 max-h-[568px] w-[calc(100%+48px)] pt-2 px-4">
+      <div className="-m-6 max-h-[568px] w-[calc(100%+48px)] pt-2 px-4 mb-4">
          <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2">
             <div className="flex items-center justify-between text-blue-gray-900">
                <Typography
