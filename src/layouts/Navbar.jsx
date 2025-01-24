@@ -68,7 +68,7 @@ export function StickyNavbar() {
             color="blue-gray"
             className="p-1 font-normal hover:cursor-pointer flex items-center"
          ><h4>Cart</h4>
-           <BiCart size={20}fill="#c2807a"  />
+           <BiCart size={20} fill="#c2807a" />
          </Typography>
       </ul>
    );

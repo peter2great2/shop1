@@ -1,0 +1,17 @@
+.featured-text {
+  font-size: 1.4vw;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 90%;
+}
+
+@media (min-width: 768px) {
+  .featured-text {
+    white-space: normal;
+    overflow: visible;
+    text-overflow: clip;
+    max-width: 100%;
+    font-size: 6vw;
+  }
+}

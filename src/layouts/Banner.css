@@ -1,6 +1,6 @@
 .banner {
   width: 100%;
-  background: url(http://s6.favim.com/orig/150112/background-cold-gif-nature-Favim.com-2380226.gif);
+  background: url("../assets/images/banner.gif");
   background-size: cover;
   font-size: 10vw;
   color: #fff;
@@ -13,7 +13,29 @@
 }
 
 .big-text {
-  font-size: 5vw ;
+  font-size: 3.5vw;
   font-weight: 800;
   text-transform: uppercase;
+}
+
+.banner-text {
+  margin-top: 5px;
+  white-space: nowrap;
+  text-wrap: wrap;
+  text-align: left;
+  font-size: 1.5vw;
+  max-width: 95%;
+}
+
+@media (max-width: 768px) {
+  .banner-text {
+    white-space: normal;
+    font-size: 2vw;
+    text-overflow: clip;
+    max-width: 100%;
+    text-emphasis: inherit;
+  }
+  .big-text{
+    font-size: 5vw;
+  }
 }

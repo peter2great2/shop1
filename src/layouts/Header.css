@@ -1,5 +1,7 @@
 
-
+body{
+  background-color: rgb(236, 235, 240);
+}
 .text-shadow-drop-top {
 	-webkit-animation: text-shadow-drop-top 0.6s infinite both;
 	        animation: text-shadow-drop-top 0.6s infinite both;
