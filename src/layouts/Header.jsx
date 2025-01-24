@@ -8,7 +8,7 @@ const Header = () => {
     <section className="bg-[rgb(236, 235, 240)] dark:text-gray-800 mt-16 z-40">
       <div className="container flex flex-col justify-center p-2 mx-auto sm:py-12 lg:py-8 lg:flex-row lg:justify-between">
         <div className="flex items-center justify-center p-2 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
-          <img src={cart4herosection} alt="" className="object-contain h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
+          <img src={cart4herosection} alt="" className="object-contain w-full h-full sm:h-80 lg:h-96 xl:h-112 2xl:h-128" />
         </div>
         <div className="flex flex-col justify-center p-6 text-center rounded-sm lg:max-w-md xl:max-w-lg lg:text-left">
           <h1 className="text-shadow-drop-top text-5xl font-bold text-center leading-none sm:text-6xl"><span className='text-shadow-drop-top'>Web 3</span> Shopping Experience <br />
