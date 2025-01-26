@@ -10,6 +10,7 @@ import {
   Button,
   IconButton,
 } from "@material-tailwind/react";
+import Logo from "../utils/Logo";
 
 export function StickyNavbar() {
   const [admin, setAdmin] = useState(false);
@@ -90,11 +91,9 @@ export function StickyNavbar() {
     <div className="-m-6 max-h-[568px] w-[calc(100%+48px)] pt-2 px-4 mb-4">
       <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2 bg-[#fff]">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Typography className="mr-4 cursor-pointer py-1.5 font-medium">
-            <Link to={'/'} className="text-2xl">
-              Shopify<span className="text-[#c2807a]">3</span>
-            </Link>
-          </Typography>
+        <Link to={'/'}>
+        <Logo/>
+        </Link>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
             <div className="flex items-center gap-x-1 bg-[#c2807a]">

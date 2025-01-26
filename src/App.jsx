@@ -8,6 +8,7 @@ import Profile from "./pages/Profile";
 import AdminDashboard from "./admin/Admin";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import UserManagement from "./admin/Users";
+import CheckoutPage from "./pages/Checkout";
 import Products from "./admin/Products";
 import CategoryPage from "./admin/Category";
 import OrderPage from "./admin/Orders";
@@ -58,6 +59,10 @@ function App() {
                   <Route
                      path="/user/cart"
                      element={<Cart  />}
+                  />
+                  <Route
+                     path="/user/cart/checkout"
+                     element={<CheckoutPage />}
                   />
                </Route>
             </Routes>
