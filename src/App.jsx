@@ -11,6 +11,7 @@ import UserManagement from "./admin/Users";
 import Products from "./admin/Products";
 import CategoryPage from "./admin/Category";
 import OrderPage from "./admin/Orders";
+import Cart from "./utils/Cart";
 function App() {
    return (
       <>
@@ -53,6 +54,10 @@ function App() {
                   <Route
                      path="/admin/orders"
                      element={<OrderPage />}
+                  />
+                  <Route
+                     path="/user/cart"
+                     element={<Cart  />}
                   />
                </Route>
             </Routes>

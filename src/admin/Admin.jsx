@@ -13,9 +13,8 @@ const AdminDashboard = () => {
    const [allAdmins, setAllAdmins] = useState(null);
    const [allOrders, setAllOrders] = useState(null);
    const [allCategories, setAllCategories] = useState(null);
-   // const [totalRevenue, setTotalRevenue] = useState(null);
-   // const [totalVisits, setTotalVisits] = useState(null);
-
+   const [cartItems, setCartItems] = useState([]);
+ 
    const fetchData = async () => {
       try {
          const [
@@ -42,20 +41,13 @@ const AdminDashboard = () => {
             axios.get("http://localhost:3000/api/category/all", {
                withCredentials: true,
             }),
-            // axios.get("http://localhost:3000/api/revenue/total", {
-            //    withCredentials: true,
-            // }),
-            // axios.get("http://localhost:3000/api/visits/total", {
-            //    withCredentials: true,
-            // }),
          ]);
          setAllUsers(userResponse.data.allUsers);
          setAllProducts(productsResponse.data.allProducts);
          setAllAdmins(adminResponse.data.allAdmins);
          setAllOrders(orderResponse.data.totalOrders);
          setAllCategories(categoryResponse.data.categoryCount);
-         // setTotalRevenue(revenueResponse.data.totalRevenue);
-         // setTotalVisits(visitsResponse.data.totalVisits);
+         
       } catch (error) {
          console.log(error);
       }
@@ -64,7 +56,6 @@ const AdminDashboard = () => {
    return (
       <div>
          <StickyNavbar />
-         <br /><br />
 
          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 p-6">
             <Link
@@ -123,6 +114,14 @@ const AdminDashboard = () => {
                <FaChartLine size={40} />
                <h2 className="uppercase mt-2 text-lg">Total Visits</h2>
                <h2 className="text-3xl font-bold">499442</h2>
+            </Link>
+            <Link
+               to={"/user/cart"}
+               className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-pink-400 to-pink-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform"
+            >
+               <FaChartLine size={40} />
+               <h2 className="uppercase mt-2 text-lg">Your Cart</h2>
+               <h2 className="text-3xl font-bold">4</h2>
             </Link>
          </div>
          <Footer/>

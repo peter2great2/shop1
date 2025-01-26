@@ -14,7 +14,7 @@ const Homepage = () => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setOpen(true);
-    }, 2000);
+    }, 200000);
     return () => clearTimeout(timer);
   }, []);
 

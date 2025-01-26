@@ -23,7 +23,7 @@ export function CarouselTransition() {
         </p>
         <Link to={'/login'} rel="noopener noreferrer" href="#" className="px-8  w-[90%] py-3 text-lg font-semibold bg-[#c2807a] hover:bg-brown-700 text-center dark:text-gray-50 flex justify-center gap-2 items-center">Go to Store <FaStore/></Link>
       </div>
-      <Carousel transition={{ duration: 1 }} autoplayDelay={2000} loop autoplay navigation={""} prevArrow={""} nextArrow={""}  className=" w-full md:w-1/2">
+      <Carousel transition={{ duration: 1 }} autoplayDelay={2000} loop autoplay navigation={""}   className=" w-full md:w-1/2">
         <div>
           <img
             src={carouselphoto1}
