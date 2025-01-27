@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import { StickyNavbar } from "../layouts/Navbar";
 import axios from "axios";
 import{ Footer} from "../layouts/Footer"; 
+import { Link } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 
 const OrderPage = () => {
   const [orders, setOrders] = React.useState([]);
@@ -42,8 +44,13 @@ const OrderPage = () => {
   return (
     <div>
       <StickyNavbar />
-      <br />
-      <div className="container mx-auto p-4 mt-14">
+      <Link
+              to="/admin"
+              className="mt-24 ml-2 w-fit flex items-center md:ml-4 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <FiArrowLeft className="mr-2" /> Back to Admin
+            </Link>
+      <div className="container mx-auto p-4">
         <h1 className="text-2xl font-bold mb-4">Order Page</h1>
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
@@ -59,7 +66,7 @@ const OrderPage = () => {
             {orders.map((order, index) => (
               <tr key={index} className="text-center">
                 <td className="border border-gray-300 px-4 py-2">{order._id}</td>
-                <td className="border border-gray-300 px-4 py-2">{order.productName}</td>
+                <td className="border border-gray-300 px-4 py-2">{order.items[0].name}</td>
                 <td className="border border-gray-300 px-4 py-2">{order.userId.name}</td>
                 <td className="border border-gray-300 px-4 py-2">{`${order.userId.address[0].street}, ${order.userId.address[0].city}, ${order.userId.address[0].state}`}</td>
                 <td className={`border border-gray-300 px-4 py-2 ${getStatusClass(order.status)}`}>

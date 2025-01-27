@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { FaTrash, FaEdit } from "react-icons/fa";
+import {FiArrowLeft} from 'react-icons/fi'
 import { StickyNavbar } from "../layouts/Navbar";
 import { Dialog, DialogBody, DialogFooter } from "@material-tailwind/react";
-import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
 
 const UserManagement = () => {
    const [users, setUsers] = useState([]);
@@ -93,6 +94,12 @@ const UserManagement = () => {
       <div>
          <StickyNavbar />
          <br />
+         <Link
+              to="/admin"
+              className="mt-12 mb-4 ml-2 w-fit flex items-center md:mt-10 md:mb-4 md:ml-16 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <FiArrowLeft className="mr-2" /> Back to Admin
+            </Link>
          <div className="p-4 sm:p-6 lg:p-8 bg-gray-100">
             <h1 className="text-xl sm:text-2xl lg:text-3xl font-bold mb-4 lg:mb-6 text-gray-800">
                User Management

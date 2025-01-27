@@ -58,7 +58,7 @@ const AdminDashboard = () => {
       <StickyNavbar />
 
       {/* Cards Section */}
-      <div className="p-6 mt-16"> {/* Added margin-top to prevent overlap with navbar */}
+      <div className="p-6 mt-20 md:mt-16"> {/* Added margin-top to prevent overlap with navbar */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Link
             to="/admin/users"
