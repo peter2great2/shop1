@@ -14,10 +14,17 @@ import camera from '../assets/images/camera.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { StickyNavbar } from '../layouts/Navbar';
-import { use } from 'react';
+import { use } from 'react'
+import { toast } from 'react-toastify';
+import { Footer } from '../layouts/Footer';
 
 const Cart = () => {
   const [cart, setCart] = useState([]);
+  const [name, setName] = useState('');
+  const [address, setAddress] = useState('');
+  const [phone, setPhone] = useState('');
+  const [email, setEmail] = useState('');
+  const [country, setCountry] = useState('');
 useEffect(() => {
   try {
     const fetchCartItems = async () => {
@@ -26,29 +33,43 @@ useEffect(() => {
       });
       console.log(response.data);
       setCart(response.data.cart);
+      setName(response.data.name);
+      setAddress(response.data.address);
+      setPhone(response.data.phone);
+      setEmail(response.data.email);
     }
     fetchCartItems();
   } catch (error) {
     console.log(error.message);
   }
 }, []);
+
+const handleClearCart = async (productId) => {
+  try {
+    const response = await axios.delete(`http://localhost:3000/api/cart/clear`, {
+      withCredentials: true,
+    });
+    toast.success(response.data);
+    setCart([]);
+  } catch (error) {
+    console.log(error);
+  }
+};
   
   return (
     <div>
       <StickyNavbar/>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 mt-8">
-      <div className="container mx-auto px-4 py-8 lg:py-12">
-        <div className="max-w-6xl mx-auto">
-          {/* Back to Shopping Link */}
-          <div className="flex items-center mb-4">
+      <div className="flex items-center mb-4">
             <Link
               to="/"
-              className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+              className=" flex mt-20 ml-4 items-center text-gray-600 hover:text-gray-900 transition-colors"
             >
               <FiArrowLeft className="mr-2" /> Continue Shopping
             </Link>
           </div>
-
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 mt-2">
+      <div className="container mx-auto px-4 py-8 lg:py-12">
+        <div className="max-w-6xl mx-auto">
           {/* Cart Title */}
           <h1 className="text-3xl font-bold text-gray-900 mb-8 flex items-center">
             <FiShoppingCart className="mr-3 text-2xl" /> Your Shopping Cart
@@ -102,7 +123,7 @@ useEffect(() => {
 
                   {/* Action Buttons */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <button className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition-colors">
+                    <button onClick={handleClearCart} className="w-full bg-red-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-red-700 transition-colors">
                       <FiXCircle className="text-xl" /> Clear Cart
                     </button>
 
@@ -153,6 +174,7 @@ useEffect(() => {
         </div>
       </div>
     </div>
+    <Footer />  
     </div>
   );
 };
