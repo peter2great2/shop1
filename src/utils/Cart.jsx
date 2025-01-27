@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect , useState} from 'react';
 import {
   FiShoppingCart,
   FiTrash2,
@@ -14,44 +14,25 @@ import camera from '../assets/images/camera.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { StickyNavbar } from '../layouts/Navbar';
+import { use } from 'react';
 
 const Cart = () => {
-  // Dummy static data
-  const cartItems = [
-    
-    {
-      _id: '2',
-      productDetails: {
-        name: 'Wireless Mouse',
-        price: 59.99,
-        image: 'https://via.placeholder.com/150',
-      },
-    },
-  ];
-
-  const totalPrice = cartItems.reduce((sum, item) => sum + item.productDetails.price, 0);
-  const shippingAddress = {
-    name: 'John Doe',
-    street: '123 Main Street',
-    city: 'New York',
-    state: 'NY',
-    zip: '10001',
-    country: 'United States',
-  };
-
-  useEffect(() => {
-    axios
-      .get('http://localhost:3000/api/cart/pending', {
+  const [cart, setCart] = useState([]);
+useEffect(() => {
+  try {
+    const fetchCartItems = async () => {
+      const response = await axios.get('http://localhost:3000/api/cart/all', {
         withCredentials: true,
-      })
-      .then((response) => {
-        console.log(response.data);
-      })
-      .catch((error) => {
-        console.error(error);
       });
-  }, []);
-
+      console.log(response.data);
+      setCart(response.data.cart);
+    }
+    fetchCartItems();
+  } catch (error) {
+    console.log(error.message);
+  }
+}, []);
+  
   return (
     <div>
       <StickyNavbar/>
@@ -78,13 +59,13 @@ const Cart = () => {
             {/* Left Column: Cart Items and Buttons */}
             <div className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden">
               <div className="divide-y divide-gray-200">
-                {cartItems.map((item) => (
-                  <div key={item._id} className="p-4 md:p-6 hover:bg-gray-50 transition-colors">
+                {cart.map((item) => (
+                  <div key={Math.floor(Math.random() * 500000)} className="p-4 md:p-6 hover:bg-gray-50 transition-colors">
                     <div className="flex items-start gap-4 md:gap-6">
                       {/* Product Image */}
                       <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
                         <img
-                          src={camera}
+                          src={item.productDetails.image}
                           alt={item.productDetails.name}
                           className="w-full h-full object-cover rounded-lg"
                         />
@@ -115,7 +96,7 @@ const Cart = () => {
                   <div className="flex justify-between items-center">
                     <span className="text-xl font-semibold">Total:</span>
                     <span className="text-xl font-bold text-gray-900">
-                      ${totalPrice.toFixed(2)}
+                     23333
                     </span>
                   </div>
 
@@ -150,21 +131,21 @@ const Cart = () => {
               <div className="space-y-4 text-gray-700">
                 <div className="flex items-center gap-2">
                   <FiUser className="text-gray-500" />
-                  <span>{shippingAddress.name}</span>
+                  <span>yes</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FiHome className="text-gray-500" />
-                  <span>{shippingAddress.street}</span>
+                  <span>important</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FiMapPin className="text-gray-500" />
                   <span>
-                    {shippingAddress.city}, {shippingAddress.state} {shippingAddress.zip}
+                    my address
                   </span>
                 </div>
                 <div className="flex items-center gap-2">
                   <FiGlobe className="text-gray-500" />
-                  <span>{shippingAddress.country}</span>
+                  <span>my country</span>
                 </div>
               </div>
             </div>
