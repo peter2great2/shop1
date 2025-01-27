@@ -13,6 +13,7 @@ import {
 import camera from '../assets/images/camera.jpg';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { StickyNavbar } from '../layouts/Navbar';
 
 const Cart = () => {
   // Dummy static data
@@ -52,11 +53,13 @@ const Cart = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+    <div>
+      <StickyNavbar/>
+      <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 mt-8">
       <div className="container mx-auto px-4 py-8 lg:py-12">
         <div className="max-w-6xl mx-auto">
           {/* Back to Shopping Link */}
-          <div className="flex items-center mb-8">
+          <div className="flex items-center mb-4">
             <Link
               to="/"
               className="flex items-center text-gray-600 hover:text-gray-900 transition-colors"
@@ -168,6 +171,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 };

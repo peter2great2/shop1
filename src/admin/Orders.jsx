@@ -46,7 +46,7 @@ const OrderPage = () => {
       <StickyNavbar />
       <Link
               to="/admin"
-              className="mt-24 ml-2 w-fit flex items-center md:ml-4 text-gray-600 hover:text-gray-900 transition-colors"
+              className="mt-24 ml-2 w-fit flex items-center md:ml-8 text-gray-600 hover:text-gray-900 transition-colors"
             >
               <FiArrowLeft className="mr-2" /> Back to Admin
             </Link>

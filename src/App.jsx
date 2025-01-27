@@ -13,6 +13,7 @@ import Products from "./admin/Products";
 import CategoryPage from "./admin/Category";
 import OrderPage from "./admin/Orders";
 import Cart from "./utils/Cart";
+import AdminProfilePage from "./admin/AdminProfile";
 function App() {
    return (
       <>
@@ -64,6 +65,9 @@ function App() {
                      path="/user/cart/checkout"
                      element={<CheckoutPage />}
                   />
+                  <Route
+                     path="/admin/profile"
+                     element={<AdminProfilePage />}                  />
                </Route>
             </Routes>
          </BrowserRouter>

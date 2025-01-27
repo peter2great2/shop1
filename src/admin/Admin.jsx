@@ -69,11 +69,11 @@ const AdminDashboard = () => {
             <h2 className="text-3xl font-bold">{allUsers}</h2>
           </Link>
 
-          <div className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-blue-400 to-blue-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
+          <Link to={"/admin/profile"} className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-blue-400 to-blue-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
             <FaUsers size={40} />
-            <h2 className="uppercase mt-2 text-lg">Total Admin</h2>
+            <h2 className="uppercase mt-2 text-lg">Your Profile</h2>
             <h2 className="text-3xl font-bold">{allAdmins}</h2>
-          </div>
+          </Link>
 
           <Link
             to="/admin/products"

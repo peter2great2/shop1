@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { AiOutlineDelete } from "react-icons/ai";
 import { StickyNavbar } from "../layouts/Navbar";
 import axios from "axios";
+import { Link } from "react-router-dom";
+import { FiArrowLeft } from "react-icons/fi";
 
 const CategoryPage = () => {
    const [categories, setCategories] = useState([]);
@@ -22,7 +24,12 @@ const CategoryPage = () => {
    return (
       <div>
          <StickyNavbar />
-         <br />
+         <Link
+              to="/admin"
+              className="mt-24 mb-3 ml-2 w-fit flex items-center md:mb-4 md:ml-8 text-gray-600 hover:text-gray-900 transition-colors"
+            >
+              <FiArrowLeft className="mr-2" /> Back to Admin
+            </Link>
          <div className="min-h-screen bg-gray-100 p-6">
             {/* Header Section */}
             <header className="flex justify-between items-center mb-8">
