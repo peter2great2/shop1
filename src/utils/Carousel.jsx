@@ -10,22 +10,22 @@ import { Link } from "react-router-dom";
 
 export function CarouselTransition() {
   return (
-    <div className="flex justify-center flex-col-reverse md:flex-row items-start md:mt-6 bg-gray-50 py-8">
+    <div className="flex justify-center flex-col-reverse md:flex-row md:mt-6 bg-gray-50 py-8">
       {/* Text Section */}
-      <div className="w-full md:w-1/2 p-4 text-center flex justify-start items-center flex-col space-y-6 md:h-[400px]">
-        <h2 className="font-extrabold capitalize text-3xl md:text-4xl text-center text-gray-900">
+      <div className="w-full md:w-1/2 p-2 flex justify-start items-start flex-col space-y-6 md:h-[400px] text-left">
+        <h2 className="font-extrabold capitalize text-2xl md:text-4xl text-gray-900">
           Discover Quality Products
         </h2>
         <p className="text-lg text-gray-600">
           Explore our wide range of high-quality products that meet your needs and preferences. Enjoy the best shopping experience with us!
         </p>
-        <p className="hidden md:block text-gray-600">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consectetur necessitatibus dolore ducimus, incidunt hic esse velit expedita possimus sequi quis ad soluta eaque, saepe voluptatibus consequuntur facere. Nesciunt, cum alias?
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, accusantium culpa ducimus ipsam optio, sit dolor architecto vitae, reprehenderit aperiam ut inventore eaque consectetur libero nulla beatae sequi labore aliquam.
+        <p className="hidden md:block text-left text-gray-600">
+          Discover a wide range of products that cater to all your needs. From electronics to fashion, we have it all. Shop now and enjoy exclusive deals and discounts. Our products are sourced from top brands to ensure quality and satisfaction.
+          Experience seamless shopping with fast delivery and excellent customer service. Join our community of happy customers and make the most of your shopping experience with us.
         </p>
         <Link
           to={'/login'}
-          className="px-8 w-[90%] md:w-auto py-3 text-lg font-semibold bg-[#c2807a] hover:bg-[#a86b66] text-white text-center rounded-lg transition-colors duration-300 flex justify-center gap-2 items-center"
+          className="px-8 w-[90%] md:w-auto py-3 text-lg font-semibold bg-[#f26e29] hover:bg-[#a86b66] text-white mx-auto text-center rounded-lg transition-colors duration-300 flex justify-center gap-2 items-center"
         >
           Go to Store <FaStore className="text-xl" />
         </Link>
@@ -59,7 +59,7 @@ export function CarouselTransition() {
               alt="image 1"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/30 flex items-start justify-start p-4">
               <p className="text-white text-2xl font-bold">Shop the Latest Trends</p>
             </div>
           </div>
@@ -69,7 +69,7 @@ export function CarouselTransition() {
               alt="image 2"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/30 flex items-start justify-start p-4">
               <p className="text-white text-2xl font-bold">Exclusive Deals Await</p>
             </div>
           </div>
@@ -79,7 +79,7 @@ export function CarouselTransition() {
               alt="image 3"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/30 flex items-start justify-start p-4">
               <p className="text-white text-2xl font-bold">Fast & Reliable Delivery</p>
             </div>
           </div>
@@ -89,7 +89,7 @@ export function CarouselTransition() {
               alt="image 4"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/30 flex items-start justify-start p-4">
               <p className="text-white text-2xl font-bold">Premium Quality Products</p>
             </div>
           </div>
@@ -99,7 +99,7 @@ export function CarouselTransition() {
               alt="image 5"
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+            <div className="absolute inset-0 bg-black/30 flex items-start justify-start p-4">
               <p className="text-white text-2xl font-bold">Your One-Stop Shop</p>
             </div>
           </div>

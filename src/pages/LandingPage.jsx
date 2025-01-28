@@ -42,9 +42,9 @@ const LandingPage = () => {
       </div>
 
       {/* Second Div: Content */}
-      <div className="w-full lg:w-1/2 flex flex-col items-start px-4 text-start justify-center lg:pl-12 lg:mt-0">
-        <h1 className="animate-move-from-left text-4xl lg:text-6xl font-bold text-gray-900 mb-2 lg:mb-4">
-          Web3 <br /> Shopping <br /> Experience
+      <div className="w-full lg:w-1/2 flex flex-col items-center md:items-start px-4 text-start justify-center lg:pl-12 lg:mt-0">
+        <h1 className="animate-move-from-left text-2xl lg:text-6xl font-bold text-gray-900 mb-2 lg:mb-4 lg:pr-40">
+          Web3 Shopping  Experience
         </h1>
         <p className="text-lg lg:text-xl text-gray-600 mb-8">
           Explore the decentralized web and take control of your digital future.
