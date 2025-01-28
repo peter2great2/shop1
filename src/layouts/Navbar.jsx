@@ -89,19 +89,19 @@ export function StickyNavbar() {
 
   return (
     <div className="-m-6 max-h-[568px] w-[calc(100%+48px)] pt-2 px-4 mb-4">
-      <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2 bg-[#fff]">
+      <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2 bg-white">
         <div className="flex items-center justify-between text-blue-gray-900">
-        <Link to={'/'}>
-        <Logo/>
-        </Link>
+          <Link to={'/'}>
+            <Logo />
+          </Link>
           <div className="flex items-center gap-4">
             <div className="mr-4 hidden lg:block">{navList}</div>
-            <div className="flex items-center gap-x-1 bg-[#c2807a]">
+            <div className="flex items-center gap-x-1">
               {loggedIn ? (
                 <Link
                   variant="gradient"
                   size="sm"
-                  className="hidden w-[10vw] text-white text-center py-1 rounded-xl lg:inline-block px-2"
+                  className="hidden w-[10vw] text-white text-center py-1 rounded-xl lg:inline-block px-2 bg-[#f26e29] hover:bg-[#a86b66] transition-colors duration-300"
                   onClick={handleLogOut}
                 >
                   Logout
@@ -110,7 +110,7 @@ export function StickyNavbar() {
                 <Link
                   variant="gradient"
                   size="sm"
-                  className="hidden md:w-[15vw] text-white text-center p-2 rounded lg:inline-block bg-[#c2807a]"
+                  className="hidden md:w-[15vw] text-white text-center p-2 rounded-lg lg:inline-block bg-[#f26e29] hover:bg-[#e65c1f] transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
                   onClick={() => {
                     window.location.href = "/login";
                   }}
@@ -136,7 +136,7 @@ export function StickyNavbar() {
               <Link
                 variant="gradient"
                 size="sm"
-                className="w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded lg:inline-block"
+                className="w-full bg-[#f26e29] hover:bg-[#a86b66] text-white text-center p-2 rounded-lg lg:inline-block transition-colors duration-300"
                 onClick={handleLogOut}
               >
                 Logout
@@ -145,7 +145,7 @@ export function StickyNavbar() {
               <Link
                 variant="gradient"
                 size="sm"
-                className="w-full bg-[#c2807a] hover:bg-[#c2807a] text-white text-center p-2 rounded lg:inline-block"
+                className="w-full text-white text-center p-2 rounded-lg lg:inline-block bg-[#f26e29] hover:bg-[#e65c1f] transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
                 onClick={() => {
                   window.location.href = "/login";
                 }}

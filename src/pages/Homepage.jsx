@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { StickyNavbar } from "../layouts/Navbar";
-import Header from "../layouts/Header";
+// import Header from "../layouts/Header";
 import { Footer } from "../layouts/Footer";
 import Featured from "../layouts/Featured";
 import Banner from "../layouts/Banner";
@@ -25,7 +25,7 @@ const Homepage = () => {
     <div className="md:w-[100vw]">
       <StickyNavbar />
       <LandingPage />
-      <Header />
+      {/* <Header /> */}
       <Banner />
       <Featured />
       <div className="mt-8 px-3">
