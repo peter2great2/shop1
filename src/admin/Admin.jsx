@@ -22,6 +22,7 @@ const AdminDashboard = () => {
         adminResponse,
         orderResponse,
         categoryResponse,
+        cartResponse,
       ] = await Promise.all([
         axios.get("http://localhost:3000/api/users/all", {
           withCredentials: true,
@@ -38,12 +39,16 @@ const AdminDashboard = () => {
         axios.get("http://localhost:3000/api/category/all", {
           withCredentials: true,
         }),
+        axios.get("http://localhost:3000/api/cart/all", {
+          withCredentials: true,
+        }),
       ]);
       setAllUsers(userResponse.data.allUsers);
       setAllProducts(productsResponse.data.allProducts);
       setAllAdmins(adminResponse.data.allAdmins);
       setAllOrders(orderResponse.data.totalOrders);
       setAllCategories(categoryResponse.data.categoryCount);
+      setCartItems(cartResponse.data.cart);
     } catch (error) {
       console.log(error);
     }
@@ -126,7 +131,7 @@ const AdminDashboard = () => {
           >
             <FaChartLine size={40} />
             <h2 className="uppercase mt-2 text-lg">Your Cart</h2>
-            <h2 className="text-3xl font-bold">4</h2>
+            <h2 className="text-3xl font-bold">{cartItems.length}</h2>
           </Link>
         </div>
       </div>

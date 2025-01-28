@@ -8,6 +8,7 @@ import { TestimonialCard } from "../utils/Testimonial";
 import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
 import LandingPage from "./LandingPage";
 import peter from '../assets/images/peter.jpg'
+import Sponsors from "../layouts/Sponsors";
 
 const Homepage = () => {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ const Homepage = () => {
       <LandingPage />
       {/* <Header /> */}
       <Banner />
+      <Sponsors/>
       <Featured />
       <div className="mt-8 px-3">
         <div>

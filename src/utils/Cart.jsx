@@ -32,6 +32,7 @@ useEffect(() => {
         withCredentials: true,
       });
       console.log(response.data);
+      console.log(response.data.cart);
       setCart(response.data.cart);
       setName(response.data.name);
       setAddress(response.data.address);

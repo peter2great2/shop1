@@ -27,7 +27,14 @@ const CategoryPage = () => {
 
   // Handle delete action
   const handleDelete = (categoryName) => {
-    alert(`Delete action for ${categoryName} is not functional.`);
+   axios
+      .delete(`http://localhost:3000/api/category/delete/${categoryName}`, {
+        withCredentials: true,
+      })
+      .then((res) => {
+        console.log(res.data.message);
+        setCategories(previousCategories => previousCategories.filter(category => category.name !== categoryName));
+      });
   };
 
   // Handle form submission
