@@ -6,6 +6,7 @@ import Featured from "../layouts/Featured";
 import Banner from "../layouts/Banner";
 import { TestimonialCard } from "../utils/Testimonial";
 import { Dialog, DialogHeader, DialogBody, DialogFooter, Button } from "@material-tailwind/react";
+import LandingPage from "./LandingPage";
 import peter from '../assets/images/peter.jpg'
 
 const Homepage = () => {
@@ -23,6 +24,7 @@ const Homepage = () => {
   return (
     <div className="md:w-[100vw]">
       <StickyNavbar />
+      <LandingPage />
       <Header />
       <Banner />
       <Featured />
