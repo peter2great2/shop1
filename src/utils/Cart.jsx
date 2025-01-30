@@ -56,13 +56,43 @@ const handleClearCart = async (productId) => {
     console.log(error);
   }
 };
+const handleRemoveItem = async (productId) => {
+  if (!productId) {
+    console.error("Product ID is required to remove item from cart");
+    return;
+  }
+
+  try {
+    const response = await axios.delete(`http://localhost:3000/api/cart/remove/${productId}`, {
+      withCredentials: true,
+    });
+
+    if (!response.data) {
+      console.error("No response data from server");
+      return;
+    }
+
+    toast.success(response.data.message);
+
+    // Re-fetch cart to get the latest cart items from the database
+    const updatedCartResponse = await axios.get("http://localhost:3000/api/cart/all", {
+      withCredentials: true,
+    });
+
+    setCart(updatedCartResponse.data.cart); // Set the cart to updated data from backend
+  } catch (error) {
+    console.error("Error removing item from cart:", error);
+  }
+};
+
+
   
   return (
     <div>
       <StickyNavbar/>
       <div className="flex items-center mb-4">
             <Link
-              to="/"
+              to="/admin"
               className=" flex mt-20 ml-4 items-center text-gray-600 hover:text-gray-900 transition-colors"
             >
               <FiArrowLeft className="mr-2" /> Continue Shopping
@@ -103,8 +133,8 @@ const handleClearCart = async (productId) => {
                         </p>
 
                         {/* Remove Button */}
-                        <button className="text-red-600 hover:text-red-700 flex items-center transition-colors">
-                          <FiTrash2 className="mr-2" /> Remove
+                        <button className="text-red-600 hover:text-red-700 flex items-center transition-colors" onClick={() => handleRemoveItem(item.productDetails._id)}>
+                          <FiTrash2 className="mr-2"  /> Remove
                         </button>
                       </div>
                     </div>

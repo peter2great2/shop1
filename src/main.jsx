@@ -7,8 +7,10 @@ import { ThemeProvider } from "@material-tailwind/react";
 
 createRoot(document.getElementById("root")).render(
   
-      <ThemeProvider>
-         <App />
+      <ThemeProvider >
+         <div className=" bg-[#e8e9eb]">
+            <App />
+         </div>
       </ThemeProvider>
   
 );

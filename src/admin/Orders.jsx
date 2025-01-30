@@ -7,6 +7,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const OrderPage = () => {
   const [orders, setOrders] = React.useState([]);
+  const [ordersCount, setOrdersCount] = React.useState(0);  
 
   useEffect(() => {
     const fetchOrders = async () => {
@@ -15,7 +16,8 @@ const OrderPage = () => {
           withCredentials: true,
         });
         setOrders(response.data.orders);
-        console.log(response.data.orders);
+        setOrdersCount(response.data.totalOrders);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching orders:", error);
       }
@@ -51,7 +53,7 @@ const OrderPage = () => {
               <FiArrowLeft className="mr-2" /> Back to Admin
             </Link>
       <div className="container mx-auto p-4">
-        <h1 className="text-2xl font-bold mb-4">Order Page</h1>
+        <h1 className="text-2xl font-bold mb-4">Total Orders: {ordersCount}</h1>
         <table className="min-w-full border-collapse border border-gray-300">
           <thead>
             <tr className="bg-gray-100">

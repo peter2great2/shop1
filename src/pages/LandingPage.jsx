@@ -19,7 +19,7 @@ const LandingPage = () => {
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100">
       {/* First Div: Landing Page Image with Floating Images */}
-      <div className="relative w-full lg:w-1/2 h-[400px] flex items-center justify-center lg:mb-0">
+      <div className="animate-move-from-left relative w-full lg:w-1/2 h-[400px] flex items-center justify-center lg:mb-0">
         {/* Landing Page Image */}
         <img
           src={landingPagePhoto}
