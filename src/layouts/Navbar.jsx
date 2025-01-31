@@ -15,9 +15,11 @@ import Logo from "../utils/Logo";
 export function StickyNavbar() {
   const [admin, setAdmin] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
-  const [openNav, setOpenNav] = React.useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0); // State to track cart item count
 
   useEffect(() => {
+    // Fetch user profile and cart data
     try {
       axios
         .get("http://localhost:3000/api/users/profile", {
@@ -26,13 +28,23 @@ export function StickyNavbar() {
         .then((response) => {
           setAdmin(response.data.data.isAdmin);
           setLoggedIn(true);
+          setCartItemCount(response.data.data.cart.length);
+        });
+
+      // Fetch cart item count
+      axios
+        .get("http://localhost:3000/api/cart/count", {
+          withCredentials: true,
+        })
+        .then((response) => {
+          setCartItemCount(response.data.count);
         });
     } catch (error) {
       console.log(error);
     }
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     window.addEventListener(
       "resize",
       () => window.innerWidth >= 960 && setOpenNav(false)
@@ -40,7 +52,7 @@ export function StickyNavbar() {
   }, []);
 
   const navList = (
-    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6 ">
+    <ul className="mt-2 mb-4 flex flex-col gap-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
       <Typography
         as="li"
         variant="small"
@@ -65,10 +77,21 @@ export function StickyNavbar() {
         as="li"
         variant="small"
         color="blue-gray"
-        className="p-1 font-normal hover:cursor-pointer flex items-center"
+        className="p-1 font-normal hover:cursor-pointer flex items-center relative"
       >
-        <Link to={'/user/cart'}>Cart</Link>
-        <BiCart size={20} fill="#c2807a" onClick={() => window.location.href = "/user/cart"} />
+        <Link to={"/user/cart"}>Cart</Link>
+        <div className="relative">
+          <BiCart
+            size={20}
+            fill="#c2807a"
+            onClick={() => (window.location.href = "/user/cart")}
+          />
+          {cartItemCount > 0 && (
+            <span className="absolute -top-4 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
+              {cartItemCount}
+            </span>
+          )}
+        </div>
       </Typography>
     </ul>
   );
@@ -91,7 +114,7 @@ export function StickyNavbar() {
     <div className="-m-6 max-h-[568px] w-[calc(100%+48px)] pt-2 px-4 mb-4">
       <Navbar className="fixed top-0 left-0 z-10 h-max max-w-full rounded-none lg:px-8 lg:py-2 bg-white">
         <div className="flex items-center justify-between text-blue-gray-900">
-          <Link to={'/'}>
+          <Link to={"/"}>
             <Logo />
           </Link>
           <div className="flex items-center gap-4">

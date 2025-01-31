@@ -1,33 +1,32 @@
-import {
-  Card,
-  CardHeader,
-  CardBody,
-  CardFooter,
-  Typography,
-  Button,
-} from "@material-tailwind/react"
-import cameraPhoto from '../assets/images/camera.jpg'
+import React from "react";
 
-export function EcommerceCard() {
+const ProductCard = ({ product }) => {
   return (
-    <Card className="w-48 shadow-xl hover:shadow-xl transition-shadow duration-300">
-      <CardHeader shadow={false} floated={false} className="h-40">
-        <img
-          src={cameraPhoto}
-          alt="card-image"
-          className="h-full w-full object-cover"
-        />
-      </CardHeader>
-      <CardBody>
-        <div className="mb-2 flex items-center justify-between">
-          <Typography color="blue-gray" className=" text-sm">
-            Apple AirPods
-          </Typography>
-          {/* <Typography color="blue-gray" className="font-medium">
-            $95.00
-          </Typography> */}
-        </div>
-      </CardBody>
-    </Card>
+    <div className="w-48 bg-white rounded-lg shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out overflow-hidden">
+      {/* Product Image */}
+      <img
+        className="w-full h-32 object-contain object-center"
+        src={product.image}
+        alt={product.name}
+      />
+
+      {/* Product Details */}
+      <div className="p-2">
+        {/* Product Name */}
+        <h3 className="text-sm font-medium text-gray-800 truncate">
+          {product.name}
+        </h3>
+
+        {/* Product Price */}
+        <p className="text-lg font-bold text-gray-900 mt-1">${product.price}</p>
+
+        {/* Add to Cart Button */}
+        <button className="w-full mt-2 bg-blue-500 hover:bg-blue-600 text-white text-sm font-semibold py-1 px-2 rounded">
+          Add to Cart
+        </button>
+      </div>
+    </div>
   );
-}
+};
+
+export default ProductCard;

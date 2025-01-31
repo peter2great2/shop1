@@ -7,6 +7,7 @@ import { FiArrowLeft } from "react-icons/fi";
 
 const OrderPage = () => {
   const [orders, setOrders] = React.useState([]);
+  const [product, setProduct] = React.useState("")
   const [ordersCount, setOrdersCount] = React.useState(0);  
 
   useEffect(() => {
@@ -17,6 +18,7 @@ const OrderPage = () => {
         });
         setOrders(response.data.orders);
         setOrdersCount(response.data.totalOrders);
+        setProduct(response.data.product)
         console.log(response.data);
       } catch (error) {
         console.error("Error fetching orders:", error);
@@ -59,6 +61,9 @@ const OrderPage = () => {
             <tr className="bg-gray-100">
               <th className="border border-gray-300 px-4 py-2">Product ID</th>
               <th className="border border-gray-300 px-4 py-2">Product Name</th>
+              <th className="border border-gray-300 px-4 py-2">Price</th>
+              <th className="border border-gray-300 px-4 py-2">Quantity</th>
+              <th className="border border-gray-300 px-4 py-2">Amount</th>
               <th className="border border-gray-300 px-4 py-2">Buyer Name</th>
               <th className="border border-gray-300 px-4 py-2">Buyer Address</th>
               <th className="border border-gray-300 px-4 py-2">Order Status</th>
@@ -68,7 +73,10 @@ const OrderPage = () => {
             {orders.map((order, index) => (
               <tr key={index} className="text-center">
                 <td className="border border-gray-300 px-4 py-2">{order._id}</td>
-                <td className="border border-gray-300 px-4 py-2">{order.items[0].name}</td>
+                <td className="border border-gray-300 px-4 py-2">{product.name}</td>
+                <td className="border border-gray-300 px-4 py-2">{order.items[0].quantity}</td>
+                <td className="border border-gray-300 px-4 py-2">{order.items[0].price}</td>
+                <td className="border border-gray-300 px-4 py-2">{order.totalPrice}</td>
                 <td className="border border-gray-300 px-4 py-2">{order.userId.name}</td>
                 <td className="border border-gray-300 px-4 py-2">{`${order.userId.address[0].street}, ${order.userId.address[0].city}, ${order.userId.address[0].state}`}</td>
                 <td className={`border border-gray-300 px-4 py-2 ${getStatusClass(order.status)}`}>

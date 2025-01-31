@@ -1,5 +1,4 @@
 import React from 'react';
-import { EcommerceCard } from '../utils/Card';
 import './Featured.css';
 import { CarouselTransition } from '../utils/Carousel';
 const Featured = () => {
@@ -7,7 +6,6 @@ const Featured = () => {
     <div className="p-1">
       <div className="container mx-auto w-screen">
         <div className="flex flex-row overflow-x-auto bg-scroll justify-start items-start gap-6">
-          {/* <EcommerceCard /> */}
         </div>
       </div>
       <div>
