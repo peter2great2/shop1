@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { BiSolidUser } from "react-icons/bi";
-import { FaUsers, FaBoxes, FaShoppingCart, FaTags, FaChartLine, FaDollarSign } from "react-icons/fa";
+import {
+  FaUsers,
+  FaBoxes,
+  FaShoppingCart,
+  FaTags,
+  FaChartLine,
+  FaDollarSign,
+} from "react-icons/fa";
 import { StickyNavbar } from "../layouts/Navbar";
 import axios from "axios";
 import { Link } from "react-router-dom"; // Corrected import
@@ -61,9 +68,14 @@ const AdminDashboard = () => {
   return (
     <div>
       <StickyNavbar />
+      <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mt-24">
+        Admin Dashboard
+      </h1>
 
       {/* Cards Section */}
-      <div className="p-6 mt-20 md:mt-16"> {/* Added margin-top to prevent overlap with navbar */}
+      <div className="p-6 mt-2 md:mt-2">
+        {" "}
+        {/* Added margin-top to prevent overlap with navbar */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <Link
             to="/admin/users"
@@ -74,7 +86,10 @@ const AdminDashboard = () => {
             <h2 className="text-3xl font-bold">{allUsers}</h2>
           </Link>
 
-          <Link to={"/admin/profile"} className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-blue-400 to-blue-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform">
+          <Link
+            to={"/admin/profile"}
+            className="flex flex-col items-center justify-center text-white bg-gradient-to-br from-blue-400 to-blue-900 p-6 rounded-lg cursor-pointer shadow-lg hover:scale-105 transition-transform"
+          >
             <FaUsers size={40} />
             <h2 className="uppercase mt-2 text-lg">Your Profile</h2>
             <h2 className="text-3xl font-bold">{allAdmins}</h2>

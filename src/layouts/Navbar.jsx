@@ -30,15 +30,6 @@ export function StickyNavbar() {
           setLoggedIn(true);
           setCartItemCount(response.data.data.cart.length);
         });
-
-      // Fetch cart item count
-      axios
-        .get("http://localhost:3000/api/cart/count", {
-          withCredentials: true,
-        })
-        .then((response) => {
-          setCartItemCount(response.data.count);
-        });
     } catch (error) {
       console.log(error);
     }
