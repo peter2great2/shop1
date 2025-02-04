@@ -81,7 +81,7 @@ export function StickyNavbar() {
           />
           {cartItemCount > 0 && (
             <span className="absolute -top-4 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
-              {cart.length}
+              {cart.length > 0 ? cart.length : ""}
             </span>
           )}
         </div>
