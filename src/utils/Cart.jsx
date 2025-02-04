@@ -110,7 +110,7 @@ const Cart = () => {
       <StickyNavbar />
       <div className="flex items-center mb-4">
         <Link
-          to="/admin"
+          to="/products/shop"
           className=" flex mt-20 ml-4 items-center text-gray-600 hover:text-gray-900 transition-colors"
         >
           <FiArrowLeft className="mr-2" /> Continue Shopping

@@ -79,11 +79,13 @@ export function StickyNavbar() {
             fill="#c2807a"
             onClick={() => (window.location.href = "/user/cart")}
           />
-          {cartItemCount > 0 && (
-            <span className="absolute -top-4 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
-              {cart.length > 0 ? cart.length : ""}
-            </span>
-          )}
+          <span
+            className={`absolute -top-4 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5 ${
+              cart.length === 0 ? "hidden" : ""
+            }`}
+          >
+            {cart.length}
+          </span>
         </div>
       </Typography>
     </ul>

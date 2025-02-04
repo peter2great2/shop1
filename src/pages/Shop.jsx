@@ -22,15 +22,7 @@ const Shop = () => {
     <div className="min-h-screen bg-gray-100 p-6 mt-24">
       <StickyNavbar />
       <h2 className="mb-4 text-2xl">New Arrivals</h2>
-      <div className="flex justify-start gap-4 overflow-x-auto scrollbar-hide">
-        {products.map((product) => (
-          <div key={product._id} className="">
-            <ProductCard product={product} />
-          </div>
-        ))}
-      </div>
-      <h2 className="mb-4 text-2xl mt-4">New Arrivals</h2>
-      <div className="flex justify-start gap-4">
+      <div className="flex justify-evenly gap-4 flex-wrap">
         {products.map((product) => (
           <div key={product._id} className="">
             <ProductCard product={product} />

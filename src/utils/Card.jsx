@@ -27,8 +27,7 @@ const ProductCard = ({ product }) => {
       )
       .then((res) => {
         console.log("Product added to cart: ", res.data);
-        setCart([...cart, res.data]);
-
+        setCart([...cart, res.data.cart]);
         toast.success("Product added to cart");
       })
       .catch((err) => {
