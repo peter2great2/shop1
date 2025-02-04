@@ -20,7 +20,7 @@ const CheckoutPage = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Prevent form submission
-    setShowModal(true); // Show the modal
+    setShowModal(true);
   };
 
   // Countdown and redirection logic
@@ -32,7 +32,7 @@ const CheckoutPage = () => {
 
       // Redirect to homepage after 3 seconds
       const redirectTimer = setTimeout(() => {
-        navigate("/"); // Replace "/" with your homepage route
+        navigate("/products/shop"); // Replace "/" with your homepage route
       }, 3000);
 
       // Cleanup timers
