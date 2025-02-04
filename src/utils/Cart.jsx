@@ -59,6 +59,7 @@ const Cart = () => {
       );
       toast.success(response.data);
       setCartItems([]);
+      setCart([]);
     } catch (error) {
       console.log(error);
     }
@@ -84,7 +85,6 @@ const Cart = () => {
 
       toast.success(response.data.message);
 
-      // Re-fetch cart to get the latest cart items from the database
       const updatedCartResponse = await axios.get(
         "http://localhost:3000/api/cart/all",
         {
@@ -92,7 +92,7 @@ const Cart = () => {
         }
       );
 
-      setCartItems(updatedCartResponse.data.cart); // Set the cart to updated data from backend
+      setCartItems(updatedCartResponse.data.cart);
     } catch (error) {
       console.error("Error removing item from cart:", error);
     }
