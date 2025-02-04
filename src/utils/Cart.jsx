@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { CartContext } from "../context/Cartcontext";
 import {
   FiShoppingCart,
   FiTrash2,
@@ -18,7 +19,8 @@ import { toast } from "react-toastify";
 import { Footer } from "../layouts/Footer";
 
 const Cart = () => {
-  const [cart, setCart] = useState([]);
+  const { cart, setCart } = useContext(CartContext);
+  const [cartItems, setCartItems] = useState([]);
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
@@ -33,7 +35,7 @@ const Cart = () => {
           withCredentials: true,
         });
         console.log(response.data);
-        setCart(response.data.cart);
+        setCartItems(response.data.cart);
         setName(response.data.cart.productDetails.name);
         setAddress(response.data.user.address);
         setPhone(response.data.user.phone);
@@ -56,7 +58,7 @@ const Cart = () => {
         }
       );
       toast.success(response.data);
-      setCart([]);
+      setCartItems([]);
     } catch (error) {
       console.log(error);
     }
@@ -74,7 +76,7 @@ const Cart = () => {
           withCredentials: true,
         }
       );
-
+      setCart(response.data.cart);
       if (!response.data) {
         console.error("No response data from server");
         return;
@@ -90,7 +92,7 @@ const Cart = () => {
         }
       );
 
-      setCart(updatedCartResponse.data.cart); // Set the cart to updated data from backend
+      setCartItems(updatedCartResponse.data.cart); // Set the cart to updated data from backend
     } catch (error) {
       console.error("Error removing item from cart:", error);
     }
@@ -120,7 +122,7 @@ const Cart = () => {
               {/* Left Column: Cart Items and Buttons */}
               <div className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="divide-y divide-gray-200">
-                  {cart.map((item) => (
+                  {cartItems.map((item) => (
                     <div
                       key={Math.round(Math.random() * 9000000000)} // Use a unique key like product ID
                       className="p-4 md:p-6 hover:bg-gray-50 transition-colors"

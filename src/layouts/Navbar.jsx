@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
+import { CartContext } from "../context/Cartcontext";
 import { Link } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
 import { FiMenu, FiX } from "react-icons/fi";
@@ -13,6 +14,7 @@ import {
 import Logo from "../utils/Logo";
 
 export function StickyNavbar() {
+  const { cart } = useContext(CartContext);
   const [admin, setAdmin] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
   const [openNav, setOpenNav] = useState(false);
@@ -79,7 +81,7 @@ export function StickyNavbar() {
           />
           {cartItemCount > 0 && (
             <span className="absolute -top-4 -right-2 bg-red-500 text-white text-xs rounded-full px-1.5 py-0.5">
-              {cartItemCount}
+              {cart.length}
             </span>
           )}
         </div>
