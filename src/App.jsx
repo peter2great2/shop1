@@ -21,7 +21,11 @@ function App() {
     <>
       <CartProvider>
         <BrowserRouter>
-          <ToastContainer autoClose={1000} />
+          <ToastContainer
+            autoClose={1000}
+            position="top-right"
+            className="z-50 mt-5"
+          />
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

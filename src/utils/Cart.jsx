@@ -64,7 +64,7 @@ const Cart = () => {
           withCredentials: true,
         }
       );
-      toast.success(response.data);
+      toast.success(response.data.message);
       setCartItems([]);
       setCart([]);
     } catch (error) {
