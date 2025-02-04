@@ -1,5 +1,5 @@
 import Homepage from "./pages/Homepage";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { BrowserRouter, Route, Routes } from "react-router";
 import { ToastContainer } from "react-toastify";
 import Login from "./pages/Login";
@@ -15,69 +15,32 @@ import OrderPage from "./admin/Orders";
 import Cart from "./utils/Cart";
 import Shop from "./pages/Shop";
 import AdminProfilePage from "./admin/AdminProfile";
+
 function App() {
-   return (
-      <>
-         <BrowserRouter>
-            <ToastContainer autoClose={1000} />
-            <Routes>
-               <Route
-                  path="/login"
-                  element={<Login />}
-               />
-               <Route
-                  path="/register"
-                  element={<Register />}
-               />
-               <Route element={<ProtectedRoute />}>
-                  <Route
-                     path="/"
-                     element={<Homepage />}
-                  />
-                  <Route
-                     path="/admin"
-                     element={<AdminDashboard />}
-                  />
-                  <Route
-                     path="/profile"
-                     element={<Profile />}
-                  />
-                  <Route
-                     path="/admin/users"
-                     element={<UserManagement />}
-                  />
-                  <Route
-                     path="/admin/products"
-                     element={<Products />}
-                  />
-                  <Route
-                     path="/admin/categories"
-                     element={<CategoryPage />}
-                  />
-                  <Route
-                     path="/admin/orders"
-                     element={<OrderPage />}
-                  />
-                  <Route
-                     path="/user/cart"
-                     element={<Cart  />}
-                  />
-                  <Route
-                     path="/user/cart/checkout"
-                     element={<CheckoutPage />}
-                  />
-                  <Route
-                     path="/products/shop"
-                     element={<Shop />}
-                  />
-                  <Route
-                     path="/admin/profile"
-                     element={<AdminProfilePage />}                  />
-               </Route>
-            </Routes>
-         </BrowserRouter>
-      </>
-   );
+  return (
+    <>
+      <BrowserRouter>
+        <ToastContainer autoClose={1000} />
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+          <Route element={<ProtectedRoute />}>
+            <Route path="/" element={<Homepage />} />
+            <Route path="/admin" element={<AdminDashboard />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/admin/users" element={<UserManagement />} />
+            <Route path="/admin/products" element={<Products />} />
+            <Route path="/admin/categories" element={<CategoryPage />} />
+            <Route path="/admin/orders" element={<OrderPage />} />
+            <Route path="/user/cart" element={<Cart />} />
+            <Route path="/user/cart/checkout" element={<CheckoutPage />} />
+            <Route path="/products/shop" element={<Shop />} />
+            <Route path="/admin/profile" element={<AdminProfilePage />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
