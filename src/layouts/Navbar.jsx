@@ -128,7 +128,7 @@ export function StickyNavbar() {
                 <Link
                   variant="gradient"
                   size="sm"
-                  className="hidden md:w-[15vw] text-white text-center p-2 rounded-lg lg:inline-block bg-[#f26e29] hover:bg-[#e65c1f] transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
+                  className="hidden md:w-[10vw] text-white text-center p-2 rounded-lg lg:inline-block bg-[#f26e29] hover:bg-[#e65c1f] transition-colors duration-300 shadow-md hover:shadow-lg transform hover:scale-105"
                   onClick={() => {
                     window.location.href = "/login";
                   }}
