@@ -20,9 +20,11 @@ import { Footer } from "../layouts/Footer";
 
 const Cart = () => {
   const { cart, setCart } = useContext(CartContext);
+  console.log(cart);
+
   const [cartItems, setCartItems] = useState([]);
+  const [address, setAddress] = useState([]);
   const [name, setName] = useState("");
-  const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [price, setPrice] = useState("");
@@ -40,8 +42,9 @@ const Cart = () => {
         });
         console.log(response.data);
         setCartItems(response.data.cart);
+        console.log(response.data.user.address);
         setName(response.data.cart.productDetails.name);
-        setAddress(response.data.user.address);
+        setAddress(response.data.user.address[0]);
         setPhone(response.data.user.phone);
         setEmail(response.data.user.email);
         setPrice(response.data.cart.productDetails.price);
