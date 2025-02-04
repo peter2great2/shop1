@@ -30,22 +30,19 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row items-center justify-center bg-gray-100">
-      {/* First Div: Landing Page Image with Floating Images */}
       <div className="animate-move-from-left relative w-full lg:w-1/2 h-[400px] flex items-center justify-center lg:mb-0">
-        {/* Landing Page Image */}
         <img
           src={landingPagePhoto}
           alt="Web3 Future"
-          className="w-full h-full md:object-cover object-contain"
+          className="item-shadow w-full h-full md:object-cover object-contain"
         />
 
-        {/* Floating Images */}
         {floatingImages.map((image, index) => (
           <img
             key={index}
             src={image}
             alt={`Floating Logo ${index + 1}`}
-            className={`absolute w-12 h-12 lg:w-16 lg:h-16 animate-float-${
+            className={` absolute w-12 h-12 lg:w-16 lg:h-16 animate-float-${
               index + 1
             } drop-shadow-2xl`}
             style={{
@@ -56,10 +53,9 @@ const LandingPage = () => {
         ))}
       </div>
 
-      {/* Second Div: Content */}
       <div className="w-full lg:w-1/2 flex flex-col items-center md:items-start px-4 text-start justify-center lg:pl-12 lg:mt-0">
-        <h1 className="animate-move-from-left text-2xl lg:text-6xl font-bold text-gray-900 mb-2 lg:mb-4 lg:pr-40">
-          Web3 Shopping Experience
+        <h1 className="animate-move-from-left text-2xl lg:text-6xl font-bold text-gray-900 mb-2 lg:mb-4 lg:pr-40 align-center">
+          Web3 <br /> Shopping <br /> Experience
         </h1>
         <p className="text-lg text-center md:text-left lg:text-xl text-gray-600 mb-8">
           where shopping meets blockchain innovation. Explore the decentralized

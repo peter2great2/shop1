@@ -124,38 +124,31 @@ const Cart = () => {
               <FiShoppingCart className="mr-3 text-2xl" /> Your Shopping Cart
             </h1>
 
-            {/* Main Grid Layout */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-              {/* Left Column: Cart Items and Buttons */}
               <div className="lg:col-span-2 bg-white rounded-xl shadow-lg overflow-hidden">
                 <div className="divide-y divide-gray-200">
                   {cartItems.map((item) => (
                     <div
-                      key={Math.round(Math.random() * 9000000000)} // Use a unique key like product ID
+                      key={Math.round(Math.random() * 9000000000)}
                       className="p-4 md:p-6 hover:bg-gray-50 transition-colors"
                     >
                       <div className="flex items-start gap-4 md:gap-6">
-                        {/* Product Image */}
                         <div className="relative w-24 h-24 md:w-32 md:h-32 flex-shrink-0">
                           <img
-                            src={item.productDetails?.image || camera} // Fallback to a default image if `image` is missing
-                            alt={item.productDetails?.name || "Product Image"} // Fallback alt text
+                            src={item.productDetails?.image || camera}
+                            alt={item.productDetails?.name || "Product Image"}
                             className="w-full h-full object-cover rounded-lg"
                           />
                         </div>
 
-                        {/* Product Details */}
                         <div className="flex-grow">
                           <h3 className="text-lg font-semibold text-gray-900 mb-2">
                             {item.productDetails?.name || "Product Name"}{" "}
-                            {/* Fallback to "Product Name" if `name` is missing */}
                           </h3>
                           <p className="text-lg font-semibold text-gray-900 mb-4">
                             ${item.productDetails?.price?.toFixed(2) || "0.00"}{" "}
-                            {/* Fallback to "0.00" if `price` is missing */}
                           </p>
 
-                          {/* Remove Button */}
                           <button
                             className="text-red-600 hover:text-red-700 flex items-center transition-colors"
                             onClick={() =>
@@ -170,7 +163,6 @@ const Cart = () => {
                   ))}
                 </div>
 
-                {/* Cart Summary Section */}
                 <div className="p-4 md:p-6 space-y-6">
                   <div className="bg-gray-50 p-4 rounded-lg space-y-4">
                     {cartItems.length > 0 ? (
@@ -190,7 +182,6 @@ const Cart = () => {
                       </p>
                     )}
 
-                    {/* Action Buttons */}
                     {cartItems.length > 0 && (
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <button
@@ -210,7 +201,6 @@ const Cart = () => {
                       </div>
                     )}
 
-                    {/* Secure Checkout Message */}
                     <p className="text-center text-sm text-gray-500">
                       Secure checkout process
                     </p>
@@ -218,7 +208,6 @@ const Cart = () => {
                 </div>
               </div>
 
-              {/* Right Column: Shipping Address */}
               <div className="bg-white rounded-xl shadow-lg p-6">
                 <h3 className="text-xl font-semibold flex items-center gap-2 mb-6">
                   <FiMapPin className="text-gray-600" /> Shipping Address

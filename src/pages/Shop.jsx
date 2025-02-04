@@ -6,11 +6,9 @@ import axios from "axios";
 import Banner from "../layouts/Banner";
 
 const Shop = () => {
-  const [allProducts, setAllProducts] = useState([]); // State for all products
-  const [phoneProducts, setPhoneProducts] = useState([]); // State for phone products
-
+  const [allProducts, setAllProducts] = useState([]);
+  const [phoneProducts, setPhoneProducts] = useState([]);
   useEffect(() => {
-    // Fetch all products and phone products concurrently
     const fetchData = async () => {
       try {
         const [allProductsResponse, phoneProductsResponse] = await axios.all([
@@ -39,7 +37,6 @@ const Shop = () => {
     <div className="min-h-screen bg-gray-100 p-6 mt-24">
       <StickyNavbar />
 
-      {/* Display All Products */}
       <h2 className="mb-4 text-2xl">Latest Products</h2>
       <div className="flex justify-evenly gap-4 flex-wrap">
         {allProducts.slice(0, 12).map((product) => (
@@ -49,7 +46,6 @@ const Shop = () => {
         ))}
       </div>
 
-      {/* Display Phone Products */}
       <h2 className="mb-4 text-2xl mt-8">Premium Phones</h2>
       <div className="flex justify-evenly gap-4 flex-wrap">
         {phoneProducts.map((product) => (
