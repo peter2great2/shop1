@@ -192,7 +192,9 @@ const Cart = () => {
                         </button>
 
                         <Link
-                          to="/user/cart/checkout"
+                          onClick={() =>
+                            (window.location.href = "/user/cart/checkout")
+                          }
                           className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-indigo-700 transition-colors"
                         >
                           <FiCheckCircle className="text-xl" /> Proceed to
