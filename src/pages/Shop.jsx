@@ -3,6 +3,7 @@ import ProductCard from "../utils/Card";
 import { StickyNavbar } from "../layouts/Navbar";
 import { Footer } from "../layouts/Footer";
 import axios from "axios";
+import Banner from "../layouts/Banner";
 
 const Shop = () => {
   const [allProducts, setAllProducts] = useState([]); // State for all products
@@ -39,7 +40,7 @@ const Shop = () => {
       <StickyNavbar />
 
       {/* Display All Products */}
-      <h2 className="mb-4 text-2xl">All Products</h2>
+      <h2 className="mb-4 text-2xl">Latest Products</h2>
       <div className="flex justify-evenly gap-4 flex-wrap">
         {allProducts.slice(0, 12).map((product) => (
           <div key={product._id} className="">
@@ -49,7 +50,7 @@ const Shop = () => {
       </div>
 
       {/* Display Phone Products */}
-      <h2 className="mb-4 text-2xl mt-8">Phones</h2>
+      <h2 className="mb-4 text-2xl mt-8">Premium Phones</h2>
       <div className="flex justify-evenly gap-4 flex-wrap">
         {phoneProducts.map((product) => (
           <div key={product._id} className="">
@@ -57,7 +58,7 @@ const Shop = () => {
           </div>
         ))}
       </div>
-
+      <Banner />
       <Footer />
     </div>
   );
