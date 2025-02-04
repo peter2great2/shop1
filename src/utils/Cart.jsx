@@ -28,6 +28,10 @@ const Cart = () => {
   const [price, setPrice] = useState("");
   const [image, setImage] = useState("");
   const [country, setCountry] = useState("");
+  const totalPrice = cartItems.reduce(
+    (total, item) => total + item.productDetails.price,
+    0
+  );
   useEffect(() => {
     try {
       const fetchCartItems = async () => {
@@ -169,7 +173,7 @@ const Cart = () => {
                     <div className="flex justify-between items-center">
                       <span className="text-xl font-semibold">Total:</span>
                       <span className="text-xl font-bold text-gray-900">
-                        23333
+                        {totalPrice.toFixed(2)}
                       </span>
                     </div>
 
