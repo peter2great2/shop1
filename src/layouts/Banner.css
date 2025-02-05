@@ -13,7 +13,7 @@
 }
 
 .big-text {
-  font-size: 3.5vw;
+  font-size: 2.5vw;
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -35,14 +35,23 @@
     max-width: 100%;
     text-emphasis: inherit;
   }
-  .big-text{
+  .big-text {
     font-size: 5vw;
   }
 }
 @keyframes float {
-  0% { transform: translateY(0) rotate(0deg); opacity: 0.8; }
-  50% { transform: translateY(-20px) rotate(180deg); opacity: 0.6; }
-  100% { transform: translateY(0) rotate(360deg); opacity: 0.8; }
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+    opacity: 0.8;
+  }
 }
 
 .animate-float {
