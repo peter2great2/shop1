@@ -12,13 +12,14 @@ import {
   FiGlobe,
 } from "react-icons/fi";
 import camera from "../assets/images/camera.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { StickyNavbar } from "../layouts/Navbar";
 import { toast } from "react-toastify";
 import { Footer } from "../layouts/Footer";
 
 const Cart = () => {
+  const navigate = useNavigate();
   const { cart, setCart } = useContext(CartContext);
   console.log(cart);
 
@@ -97,7 +98,9 @@ const Cart = () => {
       console.error("Error removing item from cart:", error);
     }
   };
-
+  const handleCheckOut = () => {
+    window.location.href = "/user/cart/checkout";
+  };
   return (
     <div>
       <StickyNavbar />
@@ -184,13 +187,13 @@ const Cart = () => {
                           <FiXCircle className="text-xl" /> Clear Cart
                         </button>
 
-                        <Link
-                          to="/user/cart/checkout"
+                        <button
+                          onClick={handleCheckOut}
                           className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-indigo-700 transition-colors"
                         >
                           <FiCheckCircle className="text-xl" /> Proceed to
                           Checkout
-                        </Link>
+                        </button>
                       </div>
                     )}
 
