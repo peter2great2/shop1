@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { CartContext } from "../context/Cartcontext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { BiCart } from "react-icons/bi";
 import { FiMenu, FiX } from "react-icons/fi";
 import axios from "axios";
@@ -14,6 +14,7 @@ import {
 import Logo from "../utils/Logo";
 
 export function StickyNavbar() {
+  const navigate = useNavigate();
   const { cart } = useContext(CartContext);
   const [admin, setAdmin] = useState(false);
   const [loggedIn, setLoggedIn] = useState(false);
@@ -101,7 +102,7 @@ export function StickyNavbar() {
         }
       )
       .then(() => {
-        window.location.href = "/login";
+        navigate("/login");
       });
   };
 

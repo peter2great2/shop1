@@ -23,13 +23,6 @@ const Cart = () => {
   console.log(cart);
 
   const [cartItems, setCartItems] = useState([]);
-  const [address, setAddress] = useState([]);
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [email, setEmail] = useState("");
-  const [price, setPrice] = useState("");
-  const [image, setImage] = useState("");
-  const [country, setCountry] = useState("");
   const totalPrice = cartItems.reduce(
     (total, item) => total + item.productDetails.price,
     0
@@ -192,7 +185,7 @@ const Cart = () => {
                         </button>
 
                         <Link
-                          to="checkout"
+                          to="/user/cart/checkout"
                           className="w-full bg-indigo-600 text-white px-6 py-3 rounded-lg font-medium flex items-center justify-center gap-2 hover:bg-indigo-700 transition-colors"
                         >
                           <FiCheckCircle className="text-xl" /> Proceed to

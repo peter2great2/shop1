@@ -20,7 +20,8 @@ export function Login() {
         { withCredentials: true }
       );
       toast.success("Login successful");
-      navigate("/");
+      // navigate("/");
+      window.location.href = "/";
     } catch (error) {
       toast.error(error.response?.data?.message || "Login failed");
     }
@@ -32,7 +33,10 @@ export function Login() {
     <section className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center p-4">
       <div className="w-full max-w-md mx-auto bg-white rounded-2xl shadow-xl p-8">
         <div className="text-center mb-8">
-          <Typography variant="h3" className="text-3xl font-bold text-gray-800 mb-2">
+          <Typography
+            variant="h3"
+            className="text-3xl font-bold text-gray-800 mb-2"
+          >
             Welcome Back
           </Typography>
           <Typography className="text-gray-600 text-lg">
@@ -105,7 +109,9 @@ export function Login() {
               <div className="w-full border-t border-gray-300"></div>
             </div>
             <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white text-gray-500">Or continue with</span>
+              <span className="px-2 bg-white text-gray-500">
+                Or continue with
+              </span>
             </div>
           </div>
 
